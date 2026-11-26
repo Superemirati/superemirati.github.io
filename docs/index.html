@@ -6,13 +6,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#0e5a43">
-<title>سوبر إماراتي</title>
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icons/icon-180.png">
-<link rel="icon" type="image/png" href="icons/icon-192.png">
-<meta name="apple-mobile-web-app-title" content="سوبر إماراتي">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
+<title>سوبر إماراتي · Super Emirati</title>
+<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="theme-color" content="#3aa8dc"><meta name="apple-mobile-web-app-capable" content="yes">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -65,6 +60,17 @@ h2{font:400 32px/1.1 Lalezar,Cairo,sans-serif;margin:0 0 6px;color:var(--green);
 #intro b{display:block;font:400 26px/1.15 Lalezar,Cairo,sans-serif;color:var(--red)}
 #intro span{font-size:14px}
 @media (prefers-reduced-motion:reduce){#intro{transition:none}}
+#lbp label.lb{display:flex;flex-direction:column;gap:4px;font-weight:700;margin:10px 0}
+#lbp input,#lbp select{font:700 18px Cairo,sans-serif;padding:10px 12px;border:3px solid var(--ink);background:#fff;min-height:48px;width:100%}
+#lbp .row{display:flex;gap:10px;margin:10px 0}#lbp .row input{flex:1}#lbp .row .bt{flex:0 0 auto}
+#lbp .code{font:400 64px/1 'Press Start 2P',Lalezar,monospace;letter-spacing:8px;text-align:center;margin:8px 0;color:var(--red)}
+#lbp .cd{font-size:20px;text-align:center;margin:6px 0}#lbp .cd b{font-size:28px;color:var(--green)}
+.err{color:var(--red);font-weight:700;min-height:1em}
+.pl{margin:10px 0;padding:0 22px;font-size:17px;line-height:1.8}.pl .me{font-weight:900;color:var(--green)}.pl small{opacity:.7}
+.pl.res li span{opacity:.75;font-size:15px}.pl.res{text-align:right;list-style:none;padding:0}
+#chhud{position:fixed;top:calc(env(safe-area-inset-top) + 60px);right:calc(env(safe-area-inset-right) + 12px);display:flex;flex-direction:column;align-items:flex-end;gap:6px;pointer-events:none;color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.4)}
+#chtm{font-size:20px;color:#fcbc3c}#chlb{list-style:none;margin:0;padding:6px 10px;background:rgba(0,0,0,.4);font-size:13px;font-weight:700;line-height:1.6}#chlb .me{color:#fcbc3c}
+#langp{z-index:99}#langp h1{margin-bottom:0}#langp .panel{text-align:center}#langp h1,#langp h2{text-align:center}
 </style>
 </head>
 <body>
@@ -85,18 +91,27 @@ h2{font:400 32px/1.1 Lalezar,Cairo,sans-serif;margin:0 0 6px;color:var(--green);
 </div>
 <div id="intro"><b></b><span></span></div>
 <div class="ov show" id="menu"><div class="panel">
-  <h1>سوبر إماراتي</h1>
-  <p class="sub">لعبة منصّات تتنقل فيها على خريطة الإمارات من دار الاتحاد لين الفضاء: اجمع الدراهم، اقفز فوق الأعداء، الدلّة الذهبية تكبّر سوبر إماراتي، والتمرة الذهبية من الصندوق تعطيه قوة خارقة، ووصّل علم الإمارات في آخر كل مرحلة.</p>
+  <h1 id="m_h">سوبر إماراتي</h1>
+  <p class="sub" id="m_s">لعبة منصّات تتنقل فيها على خريطة الإمارات من دار الاتحاد لين الفضاء: اجمع الدراهم، اقفز فوق الأعداء، الدلّة الذهبية تكبّر سوبر إماراتي، والتمرة الذهبية من الصندوق تعطيه قوة خارقة، ووصّل علم الإمارات في آخر كل مرحلة.</p>
   <div class="btns" id="mbtn"></div>
-  <p class="hint">الجوال: اسحب إبهامك على الأسهم للحركة، والزر الأحمر للقفز (اضغط أطول = قفزة أعلى). الأفضل تلعب والجوال بالعرض. الكمبيوتر: الأسهم والمسافة.</p>
+  <p class="hint" id="m_t">الجوال: اسحب إبهامك على الأسهم للحركة، والزر الأحمر للقفز (اضغط أطول = قفزة أعلى). الأفضل تلعب والجوال بالعرض. الكمبيوتر: الأسهم والمسافة.</p>
   <div class="flagbar"></div>
 </div></div>
+<div class="ov" id="langp"><div class="panel"><h1>سوبر إماراتي</h1><h2 dir="ltr" style="margin-top:0">SUPER EMIRATI</h2><p class="sub">اختر لغة اللعبة<br><span dir="ltr">Choose your language</span></p><div class="btns"><button class="bt" id="lg_ar">العربية</button><button class="bt" id="lg_en">English</button></div><div class="flagbar"></div></div></div>
+<div class="ov" id="lobby"><div class="panel" id="lbp"></div></div>
+<div id="chhud" hidden><span class="pill" id="chtm">0:00</span><ol id="chlb"></ol></div>
 <div class="ov" id="msg"><div class="panel"><h2 id="mt"></h2><div id="mp"></div><div class="btns" id="mb"></div></div></div>
 <script>
 {
 const T=32,H=15,GY=12;
 const cv=document.getElementById('c'),mc=cv.getContext('2d'),pc=document.createElement('canvas'),PX=2;let c=pc.getContext('2d');
 const $=s=>document.querySelector(s);
+let LANG=null;try{LANG=localStorage.getItem('se-lang')}catch(e){}
+const L_=(a,e)=>LANG==='en'?e:a;
+const ENT={'روح الاتحاد':'Spirit of the Union','أبوظبي':'Abu Dhabi','جزيرة ياس':'Yas Island','جزيرة السعديات':'Saadiyat Island','العين':'Al Ain','ليوا':'Liwa','دبي':'Dubai','الشارقة':'Sharjah','عجمان':'Ajman','أم القيوين':'Umm Al Quwain','رأس الخيمة':'Ras Al Khaimah','الفجيرة':'Fujairah','خورفكان':'Khor Fakkan','الفضاء':'Space'};
+const LME={'روح الاتحاد':'Eid Al Etihad 55 · Proud of UAE · Union House','أبوظبي':'Sheikh Zayed Grand Mosque · Aldar HQ · ADNOC Tower · Leaning Tower · Baynunah Tower','جزيرة ياس':'Red theme park · Race circuit · Water park','جزيرة السعديات':'Louvre Abu Dhabi · Zayed National Museum · Abrahamic Family House','العين':'Jebel Hafeet · Al Ain Oasis · Al Jahili Fort','ليوا':'Moreeb Dune · Liwa Oasis · Camels','دبي':'Burj Khalifa · Palm Jumeirah · The World Islands · Museum of the Future · Dubai Frame','الشارقة':'Al Noor Mosque · Central Souq · Wind towers','عجمان':'Ajman Museum · Dhow building · Corniche','أم القيوين':'Mangrove forests · UAQ Fort · Dhows','رأس الخيمة':'Jebel Jais · Dhayah Fort · Zipline','الفجيرة':'Al Badiyah Mosque · Fujairah Fort · Hajar Mountains','خورفكان':'Khor Fakkan Amphitheatre · Al Rabi Tower · Waterfall','الفضاء':'Hope Probe · Mars · International Space Station'};
+const FCE={'روح الاتحاد':'On 2 December 1971 the United Arab Emirates was declared at Union House in Dubai. The 55th Eid Al Etihad celebrates the families and generations who built the nation.','أبوظبي':'Sheikh Zayed Grand Mosque is one of the largest mosques in the world, with more than 80 white domes.','جزيرة ياس':'Yas Island is one of Abu Dhabi\'s best-known leisure destinations, with a world-class race circuit, theme parks and water parks.','جزيرة السعديات':'The dome of Louvre Abu Dhabi is made of thousands of interlaced stars, letting sunlight fall through like a \"rain of light\".','العين':'The Cultural Sites of Al Ain, including Al Ain Oasis and Hili, are on the UNESCO World Heritage List.','ليوا':'Moreeb Dune in Liwa is one of the highest sand dunes in the world at about 300 metres, and hosts the Liwa International Festival.','دبي':'Burj Khalifa is the tallest building in the world at 828 metres.','الشارقة':'UNESCO named Sharjah the Cultural Capital of the Arab World in 1998.','عجمان':'Ajman Museum is housed in a historic fort that was once the seat of government.','أم القيوين':'The mangrove forests of Umm Al Quwain are a natural home for many birds and sea creatures.','رأس الخيمة':'Jebel Jais is the highest peak in the UAE, and home to one of the longest ziplines in the world.','الفجيرة':'Al Badiyah Mosque in Fujairah is considered the oldest standing mosque in the UAE.','خورفكان':'Khor Fakkan belongs to the Emirate of Sharjah, on the Gulf of Oman coast, between the Hajar Mountains and the sea.','الفضاء':'The Emirati Hope Probe reached Mars orbit in February 2021, making the UAE the first Arab country to reach Mars. In 2023 Sultan Al Neyadi became the first Arab astronaut to walk in space.'};
+const LN=L=>LANG==='en'?(ENT[L.n]||L.n):L.n,LM_=L=>LANG==='en'?(LME[L.n]||L.lm):L.lm,FC_=L=>LANG==='en'?(FCE[L.n]||L.fact):L.fact;
 let dpr=1,scale=1,VW=800,VH=480,offY=0;
 function resize(){dpr=Math.min(2,devicePixelRatio||1);const w=innerWidth,h=innerHeight;cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);scale=Math.min(h/480,w/440);VW=w/scale;VH=h/scale;offY=Math.round(Math.max(0,(VH-480)*0.38)/PX)*PX;pc.width=Math.ceil(VW/PX);pc.height=Math.ceil(VH/PX)}
 addEventListener('resize',resize);resize();
@@ -185,17 +200,17 @@ function shrink(){P.big=false;P.pend=0;P.y+=16;P.h=28;P.x+=2;P.w=20}
 function curMus(){return P.star>0?-1:(boss&&boss.act&&!boss.dead)?-2:li}
 function hitBoss(){const B=boss;B.hp--;B.inv=70;sfx('stomp');sfx('break');if(B.hp<=0){B.dead=1;B.vy=-7;orbs=[];sfx('power');
   for(let y=0;y<GY;y++)if(map[y][W-17]===6){map[y][W-17]=0;deb.push({x:(W-17)*T+8,y:y*T+8,vx:(y%2?2:-2),vy:-6,t:0})}
-  banner('هزمت الجهل!','العلم نور… كمّل للعلم');musicStart(li)}}
+  banner(L_('هزمت الجهل!','Ignorance defeated!'),L_('العلم نور… كمّل للعلم','Knowledge is light… go raise the flag!'));musicStart(li)}}
 function banner(t,s){const it=$('#intro');it.querySelector('b').textContent=t;it.querySelector('span').textContent=s;it.classList.add('show');clearTimeout(introT);introT=setTimeout(()=>it.classList.remove('show'),3200)}
 function starOn(){P.star=600;sfx('power');musicStart(-1)}
 function power(){sfx('power');if(P.big){P.hp=Math.min(5,P.hp+1);hud()}else P.pend=1}
 function free(x,y,w,h){for(let ty=Math.floor(y/T);ty<=Math.floor((y+h-.01)/T);ty++)for(let tx=Math.floor(x/T);tx<=Math.floor((x+w-.01)/T);tx++)if(sol(tx,ty))return false;return true}
 function hurt(fell){if(P.star>0&&!fell)return;if(!fell&&P.big){shrink();P.inv=100;P.vy=-5;sfx('shrink');return}if(P.big)shrink();P.hp--;sfx('hurt');hud();
-  if(P.hp<=0){state='over';musicStop();showMsg('خلصت القلوب!','<p>ولا يهمك، جرّب '+LV[li].n+' مرة ثانية.</p>',[['أعد المرحلة',()=>start(li)],['القائمة',menu,1]]);return}
+  if(P.hp<=0){if(CH.on){chDied();return}state='over';musicStop();showMsg(L_('خلصت القلوب!','Out of hearts!'),L_('<p>ولا يهمك، جرّب '+LV[li].n+' مرة ثانية.</p>','<p>No worries, try '+LN(LV[li])+' again.</p>'),[[L_('أعد المرحلة','Retry level'),()=>start(li)],[L_('القائمة','Menu'),menu,1]]);return}
   P.inv=100;if(fell){P.x=P.sx;P.y=P.sb-P.h;P.vx=0;P.vy=0}else{P.vy=-7;P.vx=-P.face*3}}
 function step(){
   if(state==='fin'){finStep();return}
-  if(state==='map'){fr++;mapT++;return}
+  if(state==='map'){fr++;mapT++;if(CH.on&&mapT>MAPDUR+45)start(mapB);return}
   if(state!=='play'&&state!=='win')return;fr++;
   for(const p of pops)p.t++;for(const d of deb){d.t++;d.vy+=.5;d.x+=d.vx;d.y+=d.vy}deb=deb.filter(d=>d.t<70);pops=pops.filter(p=>p.t<32);if(bump&&--bump.t<=0)bump=null;
   const G=LV[li].low?.3:.55;
@@ -239,7 +254,7 @@ function step(){
     it.vy=Math.min(it.vy+G,10);if(moveX(it))it.vx=-it.vx;moveY(it);if(it.kind==='date'&&it.on)it.vy=LV[li].low?-6:-8.5;if(it.y>H*T+40)it.gone=1}
   items=items.filter(i=>!i.gone);
   if(boss){const B=boss;
-    if(!B.act&&P.x>(W-44)*T){B.act=1;banner('الوحش الأخير: الجهل','اقفز على راسه ٥ مرات… العلم نور!');musicStart(-2)}
+    if(!B.act&&P.x>(W-44)*T){B.act=1;banner(L_('الوحش الأخير: الجهل','Final boss: IGNORANCE'),L_('اقفز على راسه ٥ مرات… العلم نور!','Jump on its head 5 times… knowledge is light!'));musicStart(-2)}
     if(B.act&&!B.dead){B.t++;if(B.inv>0)B.inv--;B.vy=Math.min(B.vy+G,10);const dir=P.x+P.w/2<B.x+B.w/2?-1:1;
       if(B.t%200<140)B.vx+=(dir*(B.hp<=2?2.2:1.5)-B.vx)*.05;
       if(moveX(B))B.vx=-B.vx;if(B.x<(W-46)*T){B.x=(W-46)*T;B.vx=Math.abs(B.vx)}moveY(B);
@@ -484,8 +499,8 @@ function txt(str,font,col,ol){const k=mkc(8,8);let x=k.getContext('2d');x.font=f
   for(let i=0;i<d.length;i+=4){if(d[i+3]<110)d[i+3]=0;else{d[i]=cc[0];d[i+1]=cc[1];d[i+2]=cc[2];d[i+3]=255}}x.putImageData(id,0,0);return ol?outline(k,ol):k}
 const TTL={},SIGN={};
 try{document.fonts.ready.then(()=>{for(const k in TTL)delete TTL[k];for(const k in SIGN)delete SIGN[k]})}catch(e){}
-function title(L){if(TTL[L.n])return TTL[L.n];const a0=txt(L.n,'40px Lalezar,Cairo,sans-serif','#fcfcfc','#1b140c'),e=txt(EN[L.n]||'','700 11px Cairo,sans-serif','#fcfcfc','#1b140c'),a=mkc(Math.max(a0.width,e.width),a0.height+e.height-10),ax=a.getContext('2d');ax.drawImage(a0,(a.width-a0.width)>>1,0);ax.drawImage(e,(a.width-e.width)>>1,a0.height-12);const k=mkc(a.width+3,a.height+3),x=k.getContext('2d');
-  const sh=mkc(a.width,a.height),sx=sh.getContext('2d');sx.drawImage(a,0,0);sx.globalCompositeOperation='source-in';sx.fillStyle='rgba(0,0,0,.45)';sx.fillRect(0,0,a.width,a.height);x.drawImage(sh,3,3);x.drawImage(a,0,0);return TTL[L.n]=k}
+function title(L){const tk=(LANG||'ar')+L.n;if(TTL[tk])return TTL[tk];const en=LANG==='en',a0=en?txt(EN[L.n]||L.n,'900 30px Cairo,Arial,sans-serif','#fcfcfc','#1b140c'):txt(L.n,'40px Lalezar,Cairo,sans-serif','#fcfcfc','#1b140c'),e=txt(en?L.n:(EN[L.n]||''),'700 11px Cairo,sans-serif','#fcfcfc','#1b140c'),a=mkc(Math.max(a0.width,e.width),a0.height+e.height-10),ax=a.getContext('2d');ax.drawImage(a0,(a.width-a0.width)>>1,0);ax.drawImage(e,(a.width-e.width)>>1,a0.height-12);const k=mkc(a.width+3,a.height+3),x=k.getContext('2d');
+  const sh=mkc(a.width,a.height),sx=sh.getContext('2d');sx.drawImage(a,0,0);sx.globalCompositeOperation='source-in';sx.fillStyle='rgba(0,0,0,.45)';sx.fillRect(0,0,a.width,a.height);x.drawImage(sh,3,3);x.drawImage(a,0,0);return TTL[tk]=k}
 function sign(L){if(SIGN[L.n])return SIGN[L.n];const w=156,h=132,by=56,bh=62,k=mkc(w,h),x=k.getContext('2d');
   x.fillStyle='#5c2c0c';x.fillRect(24,by+bh,6,h-by-bh);x.fillRect(w-30,by+bh,6,h-by-bh);x.fillStyle='#9c5c2c';x.fillRect(25,by+bh,2,h-by-bh);x.fillRect(w-29,by+bh,2,h-by-bh);
   x.fillStyle='#1b140c';x.fillRect(2,by,w-4,bh);x.fillStyle='#fff4d8';x.fillRect(4,by+2,w-8,bh-4);x.fillStyle='#e41c1c';x.fillRect(4,by+2,8,bh-4);
@@ -557,11 +572,11 @@ function render(){c.setTransform(1,0,0,1,0,0);c.imageSmoothingEnabled=false;if(s
   for(const e of foes)if(e.x>cam-40&&e.x<cam+VW+40)drawFoe(e);
   if(boss&&boss.dead<90){const B=boss,k=B.inv>0&&(fr>>2)%2?SP.boss[2]:SP.boss[(fr>>4)%2];at(k,B.x+B.w/2,B.y+B.h)}
   for(const o of orbs)at(SP.orb,o.x,o.y+8);
-  if(boss&&boss.act&&!boss.dead){if(!SP.bn)SP.bn=txt('الجهل','18px Lalezar,Cairo,sans-serif','#fcfcfc','#1b140c');const bx=(pc.width>>1)-52,by=34;c.drawImage(SP.bn,(pc.width>>1)-(SP.bn.width>>1),by-SP.bn.height+8);
+  if(boss&&boss.act&&!boss.dead){if(!SP.bn)SP.bn=txt(L_('الجهل','IGNORANCE'),'18px Lalezar,Cairo,sans-serif','#fcfcfc','#1b140c');const bx=(pc.width>>1)-52,by=34;c.drawImage(SP.bn,(pc.width>>1)-(SP.bn.width>>1),by-SP.bn.height+8);
     c.fillStyle='#1b140c';c.fillRect(bx,by+6,104,10);for(let i=0;i<5;i++){c.fillStyle=i<boss.hp?'#e41c1c':'#4c3c3c';c.fillRect(bx+2+i*20,by+8,18,6)}}
   if(state!=='menu')drawP();
   if(state==='fin'||(state==='done'&&finT>0&&fw.length)){for(const p of fw){c.fillStyle=p.col;if(p.rk)c.fillRect(p.x|0,p.y|0,1,3);else c.fillRect(p.x|0,p.y|0,2,2)}
-    if(state==='fin'&&finT>20){if(!SP.f1){SP.f1=txt('مبروك!','48px Lalezar,Cairo,sans-serif','#fcbc3c','#1b140c');SP.f2=txt('أنهيت جميع المراحل','18px Lalezar,Cairo,sans-serif','#fcfcfc','#1b140c');SP.f4=txt('وهزمت الجهل','18px Lalezar,Cairo,sans-serif','#fcfcfc','#1b140c');SP.f3=txt('سوبر إماراتي','22px Lalezar,Cairo,sans-serif','#e41c1c','#fcfcfc')}
+    if(state==='fin'&&finT>20){if(!SP.f1){SP.f1=txt(L_('مبروك!','CONGRATS!'),'48px Lalezar,Cairo,sans-serif','#fcbc3c','#1b140c');SP.f2=txt(L_('أنهيت جميع المراحل','ALL LEVELS CLEARED'),'18px Lalezar,Cairo,sans-serif','#fcfcfc','#1b140c');SP.f4=txt('وهزمت الجهل','18px Lalezar,Cairo,sans-serif','#fcfcfc','#1b140c');SP.f3=txt(L_('سوبر إماراتي','SUPER EMIRATI'),'22px Lalezar,Cairo,sans-serif','#e41c1c','#fcfcfc')}
       const cx=pc.width>>1,ty=oy+44+Math.round(Math.sin(finT*.08)*2);c.drawImage(SP.f3,cx-(SP.f3.width>>1),ty-34);c.drawImage(SP.f1,cx-(SP.f1.width>>1),ty-8);c.drawImage(SP.f2,cx-(SP.f2.width>>1),ty+SP.f1.height-20)}}
   mc.setTransform(1,0,0,1,0,0);mc.imageSmoothingEnabled=false;const k=PX*scale*dpr;mc.drawImage(pc,0,0,pc.width*k,pc.height*k);
 }
@@ -616,9 +631,9 @@ function musicStart(i){musicStop();if(mute||!ac)return;const M=i===-3?{sc:'ajam'
     st++;nt+=sp}}catch(e){}},25)}
 
 /* ---------- UI ---------- */
-function hud(){$('#hp').textContent='♥'.repeat(Math.max(0,P.hp))+'♡'.repeat(Math.max(0,3-P.hp));$('#dt').textContent='دراهم '+nd+' / '+total;$('#nm').textContent=LV[li].n}
+function hud(){$('#hp').textContent='♥'.repeat(Math.max(0,P.hp))+'♡'.repeat(Math.max(0,3-P.hp));$('#dt').textContent=L_('دراهم ','Dirhams ')+nd+' / '+total;$('#nm').textContent=LN(LV[li])}
 function grid(){const mb=$('#mbtn');mb.innerHTML='';const add=(t,f,alt)=>{const b=document.createElement('button');b.className='bt'+(alt?' alt':'');b.textContent=t;b.onclick=()=>{au();f()};mb.appendChild(b)};
-  const cur=Math.min(LV.length-1,Math.max(0,+S.cur||0));add('ابدأ اللعب',()=>{S.cur=0;save();goMap(-1,0)});if(cur>0)add('كمّل من '+LV[cur].n,()=>goMap(cur-1,cur),1)}
+  const cur=Math.min(LV.length-1,Math.max(0,+S.cur||0));add(L_('ابدأ اللعب','Start game'),()=>{S.cur=0;save();goMap(-1,0)});add(L_('تحدّى ربعك','Challenge friends'),()=>chOpen(),1);if(cur>0)add(L_('كمّل من ','Continue from ')+LN(LV[cur]),()=>goMap(cur-1,cur),1);add(L_('English','العربية'),()=>setLang(LANG==='en'?'ar':'en'),1)}
 function showMsg(h,p,btns){$('#mt').textContent=h;$('#mp').innerHTML=p;const mb=$('#mb');mb.innerHTML='';
   for(const[t,f,alt]of btns){const b=document.createElement('button');b.className='bt'+(alt?' alt':'');b.textContent=t;b.onclick=()=>{au();f()};mb.appendChild(b)}
   $('#msg').classList.add('show');setPad(false)}
@@ -627,11 +642,12 @@ function menu(){state='menu';musicStop();$('#msg').classList.remove('show');grid
 
 function start(i){li=i;build(i);musicStart(i);Object.assign(P,{star:0,x:3*T,y:GY*T-28,w:20,h:28,big:false,pend:0,gt:0,vx:0,vy:0,face:1,inv:0,hp:3,co:0,jb:0});P.sx=P.x;P.sb=P.y+P.h;items=[];deb=[];nd=0;cam=0;fr=0;bump=null;state='play';
   $('#menu').classList.remove('show');$('#msg').classList.remove('show');setPad(true);hud();
-  const it=$('#intro');it.querySelector('b').textContent='المرحلة '+(i+1)+': '+LV[i].n;it.querySelector('span').textContent=(EN[LV[i].n]||'')+' — '+LV[i].lm;it.classList.add('show');clearTimeout(introT);introT=setTimeout(()=>it.classList.remove('show'),2800)}
+  const it=$('#intro');it.querySelector('b').textContent=L_('المرحلة ','Level ')+(i+1)+': '+LN(LV[i]);it.querySelector('span').textContent=LANG==='en'?LM_(LV[i]):(EN[LV[i].n]||'')+' — '+LV[i].lm;it.classList.add('show');clearTimeout(introT);introT=setTimeout(()=>it.classList.remove('show'),2800)}
 function won(){const nm=LV[li].n;S.done[nm]=1;S.best[nm]=Math.max(S.best[nm]||0,nd);save();state='done';
-  const L=LV[li],p=`<p>جمعت <b>${nd}</b> درهم من ${total}</p><p class="fact">${L.fact}</p>`;
+  const L=LV[li],p=L_(`<p>جمعت <b>${nd}</b> درهم من ${total}</p>`,`<p>You collected <b>${nd}</b> of ${total} dirhams</p>`)+`<p class="fact">${FC_(L)}</p>`;
+  if(CH.on){chWon();return}
   S.cur=li<LV.length-1?li+1:0;save();
-  if(li<LV.length-1)showMsg('وصلت العلم في '+L.n+'!',p,[['انطلق إلى '+LV[li+1].n,()=>goMap(li,li+1)],['القائمة',menu,1]]);
+  if(li<LV.length-1)showMsg(L_('وصلت العلم في '+L.n+'!','Flag raised in '+LN(L)+'!'),p,[[L_('انطلق إلى ','Go to ')+LN(LV[li+1]),()=>goMap(li,li+1)],[L_('القائمة','Menu'),menu,1]]);
   else celebrate()}
 /* ---------- travel map ---------- */
 const CO={'روح الاتحاد':[55.245,25.235],'أبوظبي':[54.37,24.45],'جزيرة ياس':[54.61,24.49],'جزيرة السعديات':[54.44,24.55],'العين':[55.74,24.21],'ليوا':[53.78,23.14],'دبي':[55.30,25.17],'الشارقة':[55.41,25.33],'عجمان':[55.47,25.40],'أم القيوين':[55.58,25.53],'رأس الخيمة':[55.98,25.76],'الفجيرة':[56.30,25.12],'خورفكان':[56.31,25.33],'الفضاء':[56.31,25.33]};
@@ -705,7 +721,7 @@ function drawMap(){const pw=pc.width,ph=pc.height,G=mapGeo();c.fillStyle='#2c8cd
     for(let k=1;k<=steps;k++){const[a1,b1]=pts[k-1],[a2,b2]=pts[k],n=Math.max(1,Math.round(Math.hypot(a2-a1,b2-b1)));for(let j=0;j<n;j++){const x=Math.round(a1+(a2-a1)*j/n),y=Math.round(b1+(b2-b1)*j/n);dot(x,y,'#1b140c',4)}}
     for(let k=1;k<=steps;k++){const[a1,b1]=pts[k-1],[a2,b2]=pts[k],n=Math.max(1,Math.round(Math.hypot(a2-a1,b2-b1))),on=k/steps<=e;for(let j=0;j<n;j++,acc++){const x=Math.round(a1+(a2-a1)*j/n),y=Math.round(b1+(b2-b1)*j/n);dot(x,y,on?'#c8102e':((acc>>2)%2?'#fcfcfc':'#5c5c64'),2)}}}
   ST.forEach((L,i)=>{const[x,y]=G.P(CO[L.n]);c.fillStyle='#1b140c';c.fillRect(x-2,y-2,5,5);c.fillStyle=i<mapB?'#00a800':i===mapB&&!sp?((fr>>3)%2?'#e41c1c':'#fcfcfc'):'#fcfcfc';c.fillRect(x-1,y-1,3,3)});
-  const lab=(L,col)=>{const[x,y]=G.P(CO[L.n]),w=tw(L.n,11);ht(L.n,Math.max(w/2+3,Math.min(pw-w/2-3,x)),y-9,11,col,{ol:'#fcfcfc',sh:false})};
+  const lab=(L,col)=>{const[x,y]=G.P(CO[L.n]),w=tw(LN(L),11);ht(LN(L),Math.max(w/2+3,Math.min(pw-w/2-3,x)),y-9,11,col,{ol:'#fcfcfc',sh:false})};
   if(A&&!sp)lab(A,'#6c4418');if(!sp)lab(B,'#c8102e');
   if(sp){const hx=pa[0],hy=Math.round(pa[1]-e*(pa[1]+30));c.fillStyle='#fcfcfc';c.fillRect(hx-2,hy-14,5,12);c.fillStyle='#e41c1c';c.fillRect(hx-1,hy-17,3,3);c.fillRect(hx-3,hy-4,2,4);c.fillRect(hx+2,hy-4,2,4);c.fillStyle='#3cbcfc';c.fillRect(hx,hy-11,1,2);if(mapT%4<2){c.fillStyle='#fcbc3c';c.fillRect(hx-1,hy-2,3,4+(fr%3))}}
   else{const hp=path?G.P(along(path,e)):pb,hx=hp[0],hy=hp[1];c.fillStyle='#1b140c';c.fillRect(hx-4,hy-4,9,6);c.fillStyle='#d4d8dc';c.fillRect(hx-3,hy-3,7,4);c.fillStyle='#d01c1c';c.fillRect(hx-3,hy-1,7,1);c.fillStyle='#1e2226';c.fillRect(hx-3,hy-3,7,1)}
@@ -713,14 +729,14 @@ function drawMap(){const pw=pc.width,ph=pc.height,G=mapGeo();c.fillStyle='#2c8cd
   else{const bh=BANDH(),y0=ph-bh;c.fillStyle='#02020e';c.fillRect(0,y0,pw,bh);for(let i=0;i<40;i++){c.fillStyle='#c8c8ff';c.fillRect((i*97+fr*2)%pw,y0+(i*31)%bh,1,1)}c.fillStyle='#1b140c';c.fillRect(0,y0-2,pw,2);
     const rx=pw>>1,ry=y0+bh-10-Math.round(e*(bh+40));c.fillStyle='#fcfcfc';c.fillRect(rx-6,ry-30,12,28);c.fillStyle='#e41c1c';c.beginPath();c.moveTo(rx-6,ry-30);c.lineTo(rx,ry-40);c.lineTo(rx+6,ry-30);c.fill();c.fillRect(rx-10,ry-8,4,8);c.fillRect(rx+6,ry-8,4,8);
     c.fillStyle='#3cbcfc';c.fillRect(rx-2,ry-24,4,4);if(mapT%4<2){c.fillStyle='#fcbc3c';c.fillRect(rx-4,ry-2,8,6+(fr%4));c.fillStyle='#e41c1c';c.fillRect(rx-2,ry+3,4,5)}}
-  const t1=A?(sp?'إلى الفضاء!':'بالقطار إلى '+B.n):'أول محطة: '+B.n,t2=(sp?'TO SPACE!':'BY TRAIN TO '+(EN[B.n]||''))+'  ·  '+(mapB+1)+' / '+LV.length;
+  const t1=A?(sp?L_('إلى الفضاء!','To space!'):L_('بالقطار إلى ','By train to ')+LN(B)):L_('أول محطة: ','First stop: ')+LN(B),t2=LANG==='en'?'LEVEL '+(mapB+1)+' / '+LV.length:(sp?'TO SPACE!':'BY TRAIN TO '+(EN[B.n]||''))+'  ·  '+(mapB+1)+' / '+LV.length;
   ht(t1,pw/2,12,17,'#fcfcfc');ht(t2,pw/2,28,8,'#fcbc3c',{f:'Cairo,sans-serif',w:'800'});
-  if(mapT>MAPDUR&&(fr>>4)%2)ht('اضغط للمتابعة',pw/2,ph-BANDH()-10,11,'#fcfcfc');}
+  if(mapT>MAPDUR&&(fr>>4)%2)ht(L_('اضغط للمتابعة','Tap to continue'),pw/2,ph-BANDH()-10,11,'#fcfcfc');}
 let fw=[],finT=0;const FC=['#e41c1c','#00a800','#fcfcfc','#fcbc3c'];
 function celebrate(){state='fin';finT=0;fw=[];$('#msg').classList.remove('show');$('#pad').hidden=true;$('#intro').classList.remove('show');musicStart(-3)}
 function showFinal(){state='done';const sum=Object.values(S.best).reduce((a,b)=>a+(+b||0),0);
-  showMsg('مبروك! خلصت رحلة الإمارات كاملة',`<p>وصلت من دار الاتحاد لين الفضاء. العلم نور، وعشت يا سوبر إماراتي!</p><p class="fact">مجموع دراهمك في كل المراحل: <b>${sum}</b> درهم</p>`,
-    [['شوف الاحتفال مرة ثانية',celebrate],['العب من البداية',()=>goMap(-1,0),1],['القائمة',menu,1]])}
+  showMsg(L_('مبروك! خلصت رحلة الإمارات كاملة','Congrats! You finished the whole UAE journey'),L_(`<p>وصلت من دار الاتحاد لين الفضاء. العلم نور، وعشت يا سوبر إماراتي!</p><p class="fact">مجموع دراهمك في كل المراحل: <b>${sum}</b> درهم</p>`,`<p>From Union House all the way to space. Knowledge is light, well done Super Emirati!</p><p class="fact">Total dirhams across all levels: <b>${sum}</b></p>`),
+    [[L_('شوف الاحتفال مرة ثانية','Watch the celebration again'),celebrate],[L_('العب من البداية','Play from the start'),()=>goMap(-1,0),1],[L_('القائمة','Menu'),menu,1]])}
 function finStep(){fr++;finT++;const pw=pc.width,ph=pc.height;
   if(finT%20===0||(finT<12&&finT%4===0))fw.push({x:20+Math.random()*(pw-40),y:ph,vx:(Math.random()-.5)*.4,vy:-(2.6+Math.random()*1.4),rk:1,col:FC[Math.random()*4|0],life:200});
   if(finT%3===0)fw.push({x:Math.random()*pw,y:-4,vx:(Math.random()-.5)*.6,vy:.7+Math.random()*.6,col:FC[Math.random()*4|0],life:600,cf:1});
@@ -731,11 +747,89 @@ function finStep(){fr++;finT++;const pw=pc.width,ph=pc.height;
   fw=fw.filter(p=>!p.dead);
   P.vx=0;P.vy=Math.min(P.vy+.3,6);moveY(P);if(P.on&&finT%45===0){P.vy=-7;P.face=-P.face}
   if(finT===660)showFinal()}
-function pause(){if(state==='play'){state='pause';musicStop();showMsg('استراحة','<p>'+LV[li].n+' · دراهم '+nd+' / '+total+'</p>',[['كمّل',resume],['أعد المرحلة',()=>start(li),1],['القائمة',menu,1]])}else if(state==='pause')resume()}
+function pause(){if(state==='play'){state='pause';musicStop();showMsg(L_('استراحة','Paused'),'<p>'+LN(LV[li])+L_(' · دراهم ',' · Dirhams ')+nd+' / '+total+(CH.on?L_('<br>الوقت يمشي في التحدي!','<br>The challenge clock keeps running!'):'')+'</p>',CH.on?[[L_('كمّل','Resume'),resume],[L_('انسحب من التحدي','Leave challenge'),chLeave,1]]:[[L_('كمّل','Resume'),resume],[L_('أعد المرحلة','Retry level'),()=>start(li),1],[L_('القائمة','Menu'),menu,1]])}else if(state==='pause')resume()}
 function resume(){$('#msg').classList.remove('show');state='play';musicStart(curMus());setPad(true)}
 $('#pz').onclick=pause;
 $('#mu').onclick=()=>{au();mute=!mute;if(mute)musicStop();else if(state==='play')musicStart(curMus());$('#mu').textContent=mute?'×':'♪'};
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&state==='play')pause()});
+
+/* ---------- challenge (multiplayer race) ---------- */
+// ضع إعدادات Firebase هنا (Project settings > Your apps > Web app > firebaseConfig)
+const FIREBASE_CONFIG=null;
+const LOBBY_MS=180000;
+const CH={on:false,started:false,ended:false,code:null,room:null,level:0,coins:0,fin:0,endAt:0,net:null,tick:0,lastPush:''};
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+let PID=null;try{PID=sessionStorage.getItem('se-pid')}catch(e){}if(!PID){PID=Math.random().toString(36).slice(2,10);try{sessionStorage.setItem('se-pid',PID)}catch(e){}}
+function loadJS(src){return new Promise((ok,no)=>{const s=document.createElement('script');s.src=src;s.onload=ok;s.onerror=no;document.head.appendChild(s)})}
+async function netFirebase(){const V='10.12.2';await loadJS('https://cdn.jsdelivr.net/npm/firebase@'+V+'/firebase-app-compat.js');await loadJS('https://cdn.jsdelivr.net/npm/firebase@'+V+'/firebase-database-compat.js');
+  if(!firebase.apps.length)firebase.initializeApp(FIREBASE_CONFIG);const db=firebase.database();let off=0;db.ref('.info/serverTimeOffset').on('value',s=>{off=s.val()||0});const TS=firebase.database.ServerValue.TIMESTAMP;let cur=null;
+  return{now:()=>Date.now()+off,
+    async create(dur,name){const t=await db.ref('counter/rooms').transaction(v=>(v||0)+1);const code=String(t.snapshot.val());
+      await db.ref('rooms/'+code).set({host:PID,createdAt:TS,startAt:Date.now()+off+LOBBY_MS,duration:dur,players:{[PID]:{name,level:0,coins:0,fin:0}}});db.ref('rooms/'+code+'/players/'+PID).onDisconnect().update({left:true});return code},
+    async join(code,name){const s=await db.ref('rooms/'+code).get();if(!s.exists())return'nf';const v=s.val();if(Date.now()+off>v.startAt)return'started';const r=db.ref('rooms/'+code+'/players/'+PID);await r.set({name,level:0,coins:0,fin:0});r.onDisconnect().update({left:true});return'ok'},
+    watch(code,cb){if(cur)cur.off();cur=db.ref('rooms/'+code);cur.on('value',s=>cb(s.val()))},
+    me(code,patch){return db.ref('rooms/'+code+'/players/'+PID).update(patch)},
+    startNow(code){return db.ref('rooms/'+code).update({startAt:Date.now()+off+5000})},
+    leave(code){if(cur)cur.off();cur=null;return db.ref('rooms/'+code+'/players/'+PID).update({left:true})}}}
+function netLocal(){const K='se-rooms',bc=('BroadcastChannel' in window)?new BroadcastChannel('se-net'):null;let w=null;
+  const all=()=>{try{return JSON.parse(localStorage.getItem(K))||{}}catch(e){return{}}},put=a=>{try{localStorage.setItem(K,JSON.stringify(a))}catch(e){}bc&&bc.postMessage(1);w&&w()};
+  if(bc)bc.onmessage=()=>w&&w();
+  return{now:()=>Date.now(),
+    async create(dur,name){const a=all();const code=String((a._n||0)+1);a._n=+code;a[code]={host:PID,createdAt:Date.now(),startAt:Date.now()+LOBBY_MS,duration:dur,players:{[PID]:{name,level:0,coins:0,fin:0}}};put(a);return code},
+    async join(code,name){const a=all();if(!a[code])return'nf';if(Date.now()>a[code].startAt)return'started';a[code].players[PID]={name,level:0,coins:0,fin:0};put(a);return'ok'},
+    watch(code,cb){w=()=>cb(all()[code]||null);w()},
+    async me(code,patch){const a=all();if(a[code]&&a[code].players[PID]){Object.assign(a[code].players[PID],patch);put(a)}},
+    async startNow(code){const a=all();if(a[code]){a[code].startAt=Date.now()+5000;put(a)}},
+    async leave(code){const a=all();if(a[code]&&a[code].players[PID]){a[code].players[PID].left=true;put(a)}w=null}}}
+async function getNet(){if(CH.net)return CH.net;CH.net=FIREBASE_CONFIG?await netFirebase():netLocal();return CH.net}
+const chName=()=>{try{return localStorage.getItem('se-name')||''}catch(e){return''}};
+const fmt=ms=>{ms=Math.max(0,ms);const s=Math.ceil(ms/1000);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
+function ranked(room){const ps=room&&room.players?Object.entries(room.players).filter(([k,v])=>v&&!v.left).map(([k,v])=>({id:k,name:String(v.name||L_('لاعب','Player')).slice(0,16),level:+v.level||0,coins:+v.coins||0,fin:+v.fin||0})):[];
+  ps.sort((a,b)=>b.level-a.level||b.coins-a.coins||(a.fin||9e15)-(b.fin||9e15));return ps}
+function chOpen(code){au();$('#menu').classList.remove('show');$('#msg').classList.remove('show');$('#lobby').classList.add('show');chForm(code||'')}
+function chForm(code){const p=$('#lbp');const off=!FIREBASE_CONFIG;
+  p.innerHTML=`<h2>${L_('تحدّى ربعك','Challenge your friends')}</h2><p class="sub">${L_('سباق جماعي: الكل يبدأ مع بعض، واللي يخلّص مراحل أكثر قبل ما يخلص الوقت يفوز.','A live race: everyone starts together, and whoever clears the most levels before time runs out wins.')}</p>
+  <label class="lb">${L_('اسمك','Your name')}<input id="chn" maxlength="14" autocomplete="off"></label>
+  <label class="lb">${L_('وقت السباق','Race time')}<select id="chd"><option value="300000">${L_('٥ دقايق','5 minutes')}</option><option value="600000" selected>${L_('١٠ دقايق','10 minutes')}</option><option value="900000">${L_('١٥ دقيقة','15 minutes')}</option></select></label>
+  <div class="btns"><button class="bt" id="chc">${L_('افتح ميلس جديد','Open a new Majlis')}</button></div>
+  <div class="row"><input id="chk" maxlength="6" inputmode="numeric" placeholder="${L_('رقم الميلس','Majlis number')}" autocomplete="off" dir="ltr"><button class="bt alt" id="chj">${L_('ادخل','Join')}</button></div>
+  <p class="err" id="che"></p>${off?`<p class="hint">${L_('وضع التجربة: الميالس تشتغل بين تبويبات نفس الجهاز بس، لين نربط Firebase.','Test mode: each Majlis only works between tabs on this device until Firebase is connected.')}</p>`:''}
+  <div class="btns"><button class="bt alt" id="chb">${L_('رجوع','Back')}</button></div>`;
+  $('#chn').value=chName();$('#chk').value=code;
+  const nm=()=>{const v=$('#chn').value.trim().slice(0,14);if(!v){$('#che').textContent=L_('اكتب اسمك أول','Enter your name first');return null}try{localStorage.setItem('se-name',v)}catch(e){}return v};
+  const fail=()=>{$('#che').textContent=L_('ما قدرنا نتصل، جرّب مرة ثانية',"Couldn't connect, please try again")};
+  $('#chc').onclick=async()=>{const n=nm();if(!n)return;try{const net=await getNet();const c=await net.create(+$('#chd').value,n);chEnter(c)}catch(e){fail()}};
+  $('#chj').onclick=async()=>{const n=nm();if(!n)return;const c=$('#chk').value.replace(/[^0-9]/g,'');if(!c){$('#che').textContent=L_('اكتب رقم الميلس','Enter the Majlis number');return}
+    try{const net=await getNet();const r=await net.join(c,n);if(r==='ok')chEnter(c);else $('#che').textContent=r==='nf'?L_('ما لقينا ميلس بهالرقم','No Majlis with that number'):L_('التحدي في هالميلس بدأ','This race already started')}catch(e){fail()}};
+  $('#chb').onclick=()=>{$('#lobby').classList.remove('show');menu()}}
+function chEnter(code){Object.assign(CH,{code,room:null,started:false,ended:false,on:false,level:0,coins:0,fin:0,lastPush:''});
+  CH.net.watch(code,r=>{CH.room=r;if(!CH.started)chLobby()});clearInterval(CH.tick);CH.tick=setInterval(chTick,250);chLobby()}
+function chLobby(){const r=CH.room,p=$('#lbp');if(!r){p.innerHTML=`<h2>${L_('جاري الاتصال…','Connecting…')}</h2>`;return}
+  const ps=ranked(r),host=r.host===PID,left=r.startAt-CH.net.now(),url=location.origin+location.pathname+'?room='+CH.code;
+  p.innerHTML=`<h2 style="text-align:center;margin-bottom:0">${L_('الميلس رقم','Majlis no.')}</h2><div class="code" dir="ltr">${esc(CH.code)}</div>
+  <p class="sub">${L_('أرسل رقم الميلس أو الرابط لربعك','Send the Majlis number or link to your friends')}</p><div class="row"><input readonly id="chu" dir="ltr" value="${esc(url)}"><button class="bt alt" id="chcp">${L_('نسخ','Copy')}</button></div>
+  <div class="cd">${L_('يبدأ السباق بعد','Race starts in')} <b id="chcd" dir="ltr">${fmt(left)}</b></div><p class="sub">${L_('وقت السباق:','Race time:')} ${Math.round((r.duration||600000)/60000)} ${L_('دقايق','min')}</p>
+  <ol class="pl">${ps.map(x=>`<li class="${x.id===PID?'me':''}">${esc(x.name)}${x.id===r.host?` <small>(${L_('صاحب الميلس','host')})</small>`:''}${x.id===PID?` <small>(${L_('أنت','you')})</small>`:''}</li>`).join('')}</ol>
+  <div class="btns">${host?`<button class="bt" id="chs">${L_('ابدأ الحين','Start now')}</button>`:''}<button class="bt alt" id="chl">${L_('اطلع','Leave')}</button></div>`;
+  $('#chcp').onclick=()=>{try{navigator.clipboard.writeText(url);$('#chcp').textContent='✓'}catch(e){$('#chu').select()}};
+  if(host)$('#chs').onclick=()=>CH.net.startNow(CH.code);$('#chl').onclick=chLeave}
+function chLeave(){clearInterval(CH.tick);if(CH.net&&CH.code)CH.net.leave(CH.code);Object.assign(CH,{on:false,started:false,code:null,room:null});$('#lobby').classList.remove('show');$('#chhud').hidden=true;menu()}
+function chPush(force){if(!CH.code)return;const lv=CH.level,co=CH.coins+(state==='play'||state==='win'?nd:0),k=lv+'/'+co+'/'+CH.fin;if(!force&&k===CH.lastPush)return;CH.lastPush=k;CH.net.me(CH.code,{level:lv,coins:co,fin:CH.fin})}
+let chLast=0;
+function chTick(){const r=CH.room;if(!r||!CH.net)return;const now=CH.net.now();
+  if(!CH.started){const e=$('#chcd');if(e)e.textContent=fmt(r.startAt-now);if(now>=r.startAt){CH.started=true;CH.on=true;CH.endAt=r.startAt+(r.duration||600000);$('#lobby').classList.remove('show');$('#chhud').hidden=false;goMap(-1,0)}return}
+  if(CH.ended)return;
+  $('#chtm').textContent=fmt(CH.endAt-now);const ps=ranked(r),mi=ps.findIndex(x=>x.id===PID),lv=L_('م','L');
+  $('#chlb').innerHTML=ps.slice(0,3).map((x,i)=>`<li class="${x.id===PID?'me':''}">${i+1}. ${esc(x.name)} · ${lv}${x.level}</li>`).join('')+(mi>2?`<li class="me">${mi+1}. ${esc(ps[mi].name)} · ${lv}${ps[mi].level}</li>`:'');
+  if(now-chLast>3000){chLast=now;chPush()}
+  if(now>=CH.endAt)chEnd()}
+function chWon(){CH.coins+=nd;CH.level=li+1;if(li>=LV.length-1){CH.fin=CH.net.now();chPush(true);state='chwait';musicStop();winSong();chResults(false)}else{chPush(true);goMap(li,li+1)}}
+function chDied(){state='chdead';musicStop();banner(L_('خلصت القلوب!','Out of hearts!'),L_('تعيد '+LV[li].n+'… الوقت يمشي!','Retrying '+LN(LV[li])+'… the clock is ticking!'));setTimeout(()=>{if(CH.on&&!CH.ended)start(li)},1600)}
+function chEnd(){CH.ended=true;CH.on=false;chPush(true);musicStop();if(state==='play'||state==='map'||state==='pause')state='chend';setPad(false);setTimeout(()=>chResults(true),400)}
+function chResults(final){const ps=ranked(CH.room),mi=ps.findIndex(x=>x.id===PID);
+  const rows=ps.map((x,i)=>`<li class="${x.id===PID?'me':''}"><b>${i+1}.</b> ${esc(x.name)} <span>${L_('مرحلة','Level')} ${x.level} · ${x.coins} ${L_('درهم','dirhams')}</span></li>`).join('');
+  const t=final?(mi===0?L_('مبروك! أنت البطل 🏆','Congrats! You win 🏆'):L_('خلص التحدي!','Race over!')):L_('خلّصت كل المراحل!','You cleared every level!');
+  showMsg(t,`${final?'':`<p>${L_('انتظر لين يخلص الوقت عشان تطلع النتيجة النهائية.','Wait for the timer to end to see the final results.')}</p>`}<ol class="pl res">${rows}</ol>`,final?[[L_('تحدي جديد','New race'),()=>{$('#msg').classList.remove('show');chOpen()}],[L_('القائمة','Menu'),()=>{$('#msg').classList.remove('show');chLeave()},1]]:[[L_('اطلع','Leave'),chLeave,1]])}
 
 /* ---------- input ---------- */
 const km={ArrowLeft:'l',KeyA:'l',ArrowRight:'r',KeyD:'r',ArrowUp:'j',KeyW:'j',Space:'j'};
@@ -755,7 +849,15 @@ cv.addEventListener('pointerdown',()=>{if(state==='map'){au();mapTap();return}if
 addEventListener('contextmenu',e=>e.preventDefault());
 
 /* ---------- loop ---------- */
-build(0);grid();
+
+const MENU_AR={h:$('#m_h').textContent,s:$('#m_s').textContent,t:$('#m_t').textContent},MENU_EN=["SUPER EMIRATI", "A platformer journey across the UAE map, from Union House all the way to space: collect dirhams, stomp enemies, the golden dallah makes Super Emirati big, the golden date from the chest gives super power, and raise the UAE flag at the end of every level.", "Mobile: slide your thumb on the arrows to move, red button to jump (hold longer = higher jump). Best played in landscape. Computer: arrow keys and space."];
+function applyLang(){const en=LANG==='en';document.documentElement.lang=en?'en':'ar';document.documentElement.dir=en?'ltr':'rtl';
+  $('#m_h').textContent=en?MENU_EN[0]:MENU_AR.h;$('#m_s').textContent=en?MENU_EN[1]:MENU_AR.s;$('#m_t').textContent=en?MENU_EN[2]:MENU_AR.t;document.title=en?'Super Emirati':'سوبر إماراتي';
+  for(const k in TTL)delete TTL[k];delete SP.f1;delete SP.f2;delete SP.f3;delete SP.bn;grid()}
+function setLang(l){LANG=l;try{localStorage.setItem('se-lang',l)}catch(e){}$('#langp').classList.remove('show');applyLang();if(state==='menu')$('#menu').classList.add('show')}
+$('#lg_ar').onclick=()=>setLang('ar');$('#lg_en').onclick=()=>setLang('en');
+build(0);if(LANG)applyLang();else{grid();$('#menu').classList.remove('show');$('#langp').classList.add('show')}
+try{const q=new URLSearchParams(location.search).get('room');if(q)setTimeout(()=>chOpen(q.replace(/\D/g,'').slice(0,6)),300)}catch(e){}
 
 let last=0,acc=0;
 function loop(t){const dt=Math.min(.1,(t-last)/1000||0);last=t;acc+=dt;let n=0;
