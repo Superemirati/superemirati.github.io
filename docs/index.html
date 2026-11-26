@@ -755,7 +755,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden&&state==='p
 
 /* ---------- challenge (multiplayer race) ---------- */
 // ضع إعدادات Firebase هنا (Project settings > Your apps > Web app > firebaseConfig)
-const FIREBASE_CONFIG=null;
+const FIREBASE_CONFIG={apiKey:"AIzaSyB60k_Tntj34Inihjo2kgn-A-wANG9JGv4",authDomain:"super-emarati.firebaseapp.com",databaseURL:"https://super-emarati-default-rtdb.europe-west1.firebasedatabase.app",projectId:"super-emarati",storageBucket:"super-emarati.firebasestorage.app",messagingSenderId:"478665381754",appId:"1:478665381754:web:0997f6abe2cbee7fa868c3"};
 const LOBBY_MS=180000;
 const CH={on:false,started:false,ended:false,code:null,room:null,level:0,coins:0,fin:0,endAt:0,net:null,tick:0,lastPush:''};
 const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
@@ -781,6 +781,7 @@ function netLocal(){const K='se-rooms',bc=('BroadcastChannel' in window)?new Bro
     async me(code,patch){const a=all();if(a[code]&&a[code].players[PID]){Object.assign(a[code].players[PID],patch);put(a)}},
     async startNow(code){const a=all();if(a[code]){a[code].startAt=Date.now()+5000;put(a)}},
     async leave(code){const a=all();if(a[code]&&a[code].players[PID]){a[code].players[PID].left=true;put(a)}w=null}}}
+const tmo=p=>Promise.race([p,new Promise((_,no)=>setTimeout(()=>no(new Error('timeout')),15000))]);
 async function getNet(){if(CH.net)return CH.net;CH.net=FIREBASE_CONFIG?await netFirebase():netLocal();return CH.net}
 const chName=()=>{try{return localStorage.getItem('se-name')||''}catch(e){return''}};
 const fmt=ms=>{ms=Math.max(0,ms);const s=Math.ceil(ms/1000);return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
@@ -798,9 +799,9 @@ function chForm(code){const p=$('#lbp');const off=!FIREBASE_CONFIG;
   $('#chn').value=chName();$('#chk').value=code;
   const nm=()=>{const v=$('#chn').value.trim().slice(0,14);if(!v){$('#che').textContent=L_('اكتب اسمك أول','Enter your name first');return null}try{localStorage.setItem('se-name',v)}catch(e){}return v};
   const fail=()=>{$('#che').textContent=L_('ما قدرنا نتصل، جرّب مرة ثانية',"Couldn't connect, please try again")};
-  $('#chc').onclick=async()=>{const n=nm();if(!n)return;try{const net=await getNet();const c=await net.create(+$('#chd').value,n);chEnter(c)}catch(e){fail()}};
+  $('#chc').onclick=async()=>{const n=nm();if(!n)return;const bt=$('#chc');if(bt.disabled)return;bt.disabled=true;try{const net=await tmo(getNet());const c=await tmo(net.create(+$('#chd').value,n));chEnter(c)}catch(e){fail();bt.disabled=false}};
   $('#chj').onclick=async()=>{const n=nm();if(!n)return;const c=$('#chk').value.replace(/[^0-9]/g,'');if(!c){$('#che').textContent=L_('اكتب رقم الميلس','Enter the Majlis number');return}
-    try{const net=await getNet();const r=await net.join(c,n);if(r==='ok')chEnter(c);else $('#che').textContent=r==='nf'?L_('ما لقينا ميلس بهالرقم','No Majlis with that number'):L_('التحدي في هالميلس بدأ','This race already started')}catch(e){fail()}};
+    try{const net=await tmo(getNet());const r=await tmo(net.join(c,n));if(r==='ok')chEnter(c);else $('#che').textContent=r==='nf'?L_('ما لقينا ميلس بهالرقم','No Majlis with that number'):L_('التحدي في هالميلس بدأ','This race already started')}catch(e){fail()}};
   $('#chb').onclick=()=>{$('#lobby').classList.remove('show');menu()}}
 function chEnter(code){Object.assign(CH,{code,room:null,started:false,ended:false,on:false,level:0,coins:0,fin:0,lastPush:''});
   CH.net.watch(code,r=>{CH.room=r;if(!CH.started)chLobby()});clearInterval(CH.tick);CH.tick=setInterval(chTick,250);chLobby()}
