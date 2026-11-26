@@ -8,6 +8,7 @@
 <meta name="theme-color" content="#0e5a43">
 <title>سوبر إماراتي · Super Emirati</title>
 <link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icons/icon-180.png"><meta name="theme-color" content="#3aa8dc"><meta name="apple-mobile-web-app-capable" content="yes">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1YS8GFMDVJ"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-1YS8GFMDVJ');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -640,10 +641,11 @@ function showMsg(h,p,btns){$('#mt').textContent=h;$('#mp').innerHTML=p;const mb=
 function setPad(on){$('#pad').hidden=!on;$('#hud').hidden=!(on||state==='pause')}
 function menu(){state='menu';musicStop();$('#msg').classList.remove('show');grid();$('#menu').classList.add('show');$('#hud').hidden=true;$('#pad').hidden=true}
 
-function start(i){li=i;build(i);musicStart(i);Object.assign(P,{star:0,x:3*T,y:GY*T-28,w:20,h:28,big:false,pend:0,gt:0,vx:0,vy:0,face:1,inv:0,hp:3,co:0,jb:0});P.sx=P.x;P.sb=P.y+P.h;items=[];deb=[];nd=0;cam=0;fr=0;bump=null;state='play';
+function trk(n,p){try{if(window.gtag)gtag('event',n,p||{})}catch(e){}}
+function start(i){li=i;trk('level_start',{level:i+1,level_name:ENT[LV[i].n]||LV[i].n,mode:CH.on?'challenge':'solo'});build(i);musicStart(i);Object.assign(P,{star:0,x:3*T,y:GY*T-28,w:20,h:28,big:false,pend:0,gt:0,vx:0,vy:0,face:1,inv:0,hp:3,co:0,jb:0});P.sx=P.x;P.sb=P.y+P.h;items=[];deb=[];nd=0;cam=0;fr=0;bump=null;state='play';
   $('#menu').classList.remove('show');$('#msg').classList.remove('show');setPad(true);hud();
   const it=$('#intro');it.querySelector('b').textContent=L_('المرحلة ','Level ')+(i+1)+': '+LN(LV[i]);it.querySelector('span').textContent=LANG==='en'?LM_(LV[i]):(EN[LV[i].n]||'')+' — '+LV[i].lm;it.classList.add('show');clearTimeout(introT);introT=setTimeout(()=>it.classList.remove('show'),2800)}
-function won(){const nm=LV[li].n;S.done[nm]=1;S.best[nm]=Math.max(S.best[nm]||0,nd);save();state='done';
+function won(){const nm=LV[li].n;trk('level_complete',{level:li+1,level_name:ENT[nm]||nm,dirhams:nd});S.done[nm]=1;S.best[nm]=Math.max(S.best[nm]||0,nd);save();state='done';
   const L=LV[li],p=L_(`<p>جمعت <b>${nd}</b> درهم من ${total}</p>`,`<p>You collected <b>${nd}</b> of ${total} dirhams</p>`)+`<p class="fact">${FC_(L)}</p>`;
   if(CH.on){chWon();return}
   S.cur=li<LV.length-1?li+1:0;save();
@@ -734,7 +736,7 @@ function drawMap(){const pw=pc.width,ph=pc.height,G=mapGeo();c.fillStyle='#2c8cd
   if(mapT>MAPDUR&&(fr>>4)%2)ht(L_('اضغط للمتابعة','Tap to continue'),pw/2,ph-BANDH()-10,11,'#fcfcfc');}
 let fw=[],finT=0;const FC=['#e41c1c','#00a800','#fcfcfc','#fcbc3c'];
 function celebrate(){state='fin';finT=0;fw=[];$('#msg').classList.remove('show');$('#pad').hidden=true;$('#intro').classList.remove('show');musicStart(-3)}
-function showFinal(){state='done';const sum=Object.values(S.best).reduce((a,b)=>a+(+b||0),0);
+function showFinal(){state='done';trk('game_complete');const sum=Object.values(S.best).reduce((a,b)=>a+(+b||0),0);
   showMsg(L_('مبروك! خلصت رحلة الإمارات كاملة','Congrats! You finished the whole UAE journey'),L_(`<p>وصلت من دار الاتحاد لين الفضاء. العلم نور، وعشت يا سوبر إماراتي!</p><p class="fact">مجموع دراهمك في كل المراحل: <b>${sum}</b> درهم</p>`,`<p>From Union House all the way to space. Knowledge is light, well done Super Emirati!</p><p class="fact">Total dirhams across all levels: <b>${sum}</b></p>`),
     [[L_('شوف الاحتفال مرة ثانية','Watch the celebration again'),celebrate],[L_('العب من البداية','Play from the start'),()=>goMap(-1,0),1],[L_('القائمة','Menu'),menu,1]])}
 function finStep(){fr++;finT++;const pw=pc.width,ph=pc.height;
@@ -803,7 +805,7 @@ function chForm(code){const p=$('#lbp');const off=!FIREBASE_CONFIG;
   $('#chj').onclick=async()=>{const n=nm();if(!n)return;const c=$('#chk').value.replace(/[^0-9]/g,'');if(!c){$('#che').textContent=L_('اكتب رقم الميلس','Enter the Majlis number');return}
     try{const net=await tmo(getNet());const r=await tmo(net.join(c,n));if(r==='ok')chEnter(c);else $('#che').textContent=r==='nf'?L_('ما لقينا ميلس بهالرقم','No Majlis with that number'):L_('التحدي في هالميلس بدأ','This race already started')}catch(e){fail()}};
   $('#chb').onclick=()=>{$('#lobby').classList.remove('show');menu()}}
-function chEnter(code){Object.assign(CH,{code,room:null,started:false,ended:false,on:false,level:0,coins:0,fin:0,lastPush:''});
+function chEnter(code){trk('majlis_enter');Object.assign(CH,{code,room:null,started:false,ended:false,on:false,level:0,coins:0,fin:0,lastPush:''});
   CH.net.watch(code,r=>{CH.room=r;if(!CH.started)chLobby()});clearInterval(CH.tick);CH.tick=setInterval(chTick,250);chLobby()}
 function chLobby(){const r=CH.room,p=$('#lbp');if(!r){p.innerHTML=`<h2>${L_('جاري الاتصال…','Connecting…')}</h2>`;return}
   const ps=ranked(r),host=r.host===PID,left=r.startAt-CH.net.now(),url=location.origin+location.pathname+'?room='+CH.code;
@@ -855,7 +857,7 @@ const MENU_AR={h:$('#m_h').textContent,s:$('#m_s').textContent,t:$('#m_t').textC
 function applyLang(){const en=LANG==='en';document.documentElement.lang=en?'en':'ar';document.documentElement.dir=en?'ltr':'rtl';
   $('#m_h').textContent=en?MENU_EN[0]:MENU_AR.h;$('#m_s').textContent=en?MENU_EN[1]:MENU_AR.s;$('#m_t').textContent=en?MENU_EN[2]:MENU_AR.t;document.title=en?'Super Emirati':'سوبر إماراتي';
   for(const k in TTL)delete TTL[k];delete SP.f1;delete SP.f2;delete SP.f3;delete SP.bn;grid()}
-function setLang(l){LANG=l;try{localStorage.setItem('se-lang',l)}catch(e){}$('#langp').classList.remove('show');applyLang();if(state==='menu')$('#menu').classList.add('show')}
+function setLang(l){LANG=l;trk('language_select',{language:l});try{localStorage.setItem('se-lang',l)}catch(e){}$('#langp').classList.remove('show');applyLang();if(state==='menu')$('#menu').classList.add('show')}
 $('#lg_ar').onclick=()=>setLang('ar');$('#lg_en').onclick=()=>setLang('en');
 build(0);if(LANG)applyLang();else{grid();$('#menu').classList.remove('show');$('#langp').classList.add('show')}
 try{const q=new URLSearchParams(location.search).get('room');if(q)setTimeout(()=>chOpen(q.replace(/\D/g,'').slice(0,6)),300)}catch(e){}

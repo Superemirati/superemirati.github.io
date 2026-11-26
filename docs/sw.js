@@ -1,5 +1,5 @@
 // Offline cache so the game opens without internet after the first visit.
-const CACHE = 'super-emirati-v10';
+const CACHE = 'super-emirati-v11';
 const FILES = ['./', 'index.html', 'manifest.json', 'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png'];
 
 self.addEventListener('install', e => {
@@ -17,6 +17,8 @@ self.addEventListener('activate', e => {
 // Network first (so updates arrive), cache as fallback when offline.
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET') return;
+  const u = new URL(e.request.url);
+  if (u.origin !== location.origin && u.hostname !== 'cdn.jsdelivr.net') return;
   e.respondWith(
     fetch(e.request)
       .then(r => {
