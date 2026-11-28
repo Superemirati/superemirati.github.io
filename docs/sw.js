@@ -1,5 +1,5 @@
 // Offline cache so the game opens without internet after the first visit.
-const CACHE = 'super-emirati-v13';
+const CACHE = 'super-emirati-v15';
 const FILES = ['./', 'index.html', 'manifest.json', 'icons/icon-180.png', 'icons/icon-192.png', 'icons/icon-512.png'];
 
 self.addEventListener('install', e => {

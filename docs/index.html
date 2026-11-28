@@ -120,9 +120,9 @@ const cv=document.getElementById('c'),mc=cv.getContext('2d'),pc=document.createE
 const $=s=>document.querySelector(s);
 let LANG=null;try{LANG=localStorage.getItem('se-lang')}catch(e){}
 const L_=(a,e)=>LANG==='en'?e:a;
-const ENT={'روح الاتحاد':'Spirit of the Union','أبوظبي':'Abu Dhabi','جزيرة ياس':'Yas Island','جزيرة السعديات':'Saadiyat Island','العين':'Al Ain','ليوا':'Liwa','دبي':'Dubai','الشارقة':'Sharjah','عجمان':'Ajman','أم القيوين':'Umm Al Quwain','رأس الخيمة':'Ras Al Khaimah','الفجيرة':'Fujairah','خورفكان':'Khor Fakkan','الفضاء':'Space'};
-const LME={'روح الاتحاد':'Eid Al Etihad 55 · Proud of UAE · Union House','أبوظبي':'Sheikh Zayed Grand Mosque · Aldar HQ · ADNOC Tower · Leaning Tower · Baynunah Tower','جزيرة ياس':'Red theme park · Race circuit · Water park','جزيرة السعديات':'Louvre Abu Dhabi · Zayed National Museum · Abrahamic Family House','العين':'Jebel Hafeet · Al Ain Oasis · Al Jahili Fort','ليوا':'Moreeb Dune · Liwa Oasis · Camels','دبي':'Burj Khalifa · Palm Jumeirah · The World Islands · Museum of the Future · Dubai Frame','الشارقة':'Al Noor Mosque · Central Souq · Wind towers','عجمان':'Ajman Museum · Dhow building · Corniche','أم القيوين':'Mangrove forests · UAQ Fort · Dhows','رأس الخيمة':'Jebel Jais · Dhayah Fort · Zipline','الفجيرة':'Al Badiyah Mosque · Fujairah Fort · Hajar Mountains','خورفكان':'Khor Fakkan Amphitheatre · Al Rabi Tower · Waterfall','الفضاء':'Hope Probe · Mars · International Space Station'};
-const FCE={'روح الاتحاد':'On 2 December 1971 the United Arab Emirates was declared at Union House in Dubai. The 55th Eid Al Etihad celebrates the families and generations who built the nation.','أبوظبي':'Sheikh Zayed Grand Mosque is one of the largest mosques in the world, with more than 80 white domes.','جزيرة ياس':'Yas Island is one of Abu Dhabi\'s best-known leisure destinations, with a world-class race circuit, theme parks and water parks.','جزيرة السعديات':'The dome of Louvre Abu Dhabi is made of thousands of interlaced stars, letting sunlight fall through like a \"rain of light\".','العين':'The Cultural Sites of Al Ain, including Al Ain Oasis and Hili, are on the UNESCO World Heritage List.','ليوا':'Moreeb Dune in Liwa is one of the highest sand dunes in the world at about 300 metres, and hosts the Liwa International Festival.','دبي':'Burj Khalifa is the tallest building in the world at 828 metres.','الشارقة':'UNESCO named Sharjah the Cultural Capital of the Arab World in 1998.','عجمان':'Ajman Museum is housed in a historic fort that was once the seat of government.','أم القيوين':'The mangrove forests of Umm Al Quwain are a natural home for many birds and sea creatures.','رأس الخيمة':'Jebel Jais is the highest peak in the UAE, and home to one of the longest ziplines in the world.','الفجيرة':'Al Badiyah Mosque in Fujairah is considered the oldest standing mosque in the UAE.','خورفكان':'Khor Fakkan belongs to the Emirate of Sharjah, on the Gulf of Oman coast, between the Hajar Mountains and the sea.','الفضاء':'The Emirati Hope Probe reached Mars orbit in February 2021, making the UAE the first Arab country to reach Mars. In 2023 Sultan Al Neyadi became the first Arab astronaut to walk in space.'};
+const ENT={'روح الاتحاد':'Spirit of the Union','أبوظبي':'Abu Dhabi','جزيرة ياس':'Yas Island','آيس أبوظبي':'Ice Abu Dhabi','جزيرة السعديات':'Saadiyat Island','العين':'Al Ain','ليوا':'Liwa','دبي':'Dubai','الشارقة':'Sharjah','عجمان':'Ajman','أم القيوين':'Umm Al Quwain','رأس الخيمة':'Ras Al Khaimah','الفجيرة':'Fujairah','خورفكان':'Khor Fakkan','الفضاء':'Space'};
+const LME={'روح الاتحاد':'Eid Al Etihad 55 · Proud of UAE · Union House','أبوظبي':'Sheikh Zayed Grand Mosque · Aldar HQ · ADNOC Tower · Leaning Tower · Baynunah Tower','جزيرة ياس':'Red theme park · Race circuit · Water park','جزيرة السعديات':'Louvre Abu Dhabi · Zayed National Museum · Abrahamic Family House','العين':'Jebel Hafeet · Al Ain Oasis · Al Jahili Fort','ليوا':'Moreeb Dune · Liwa Oasis · Camels','دبي':'Burj Khalifa · Palm Jumeirah · The World Islands · Museum of the Future · Dubai Frame','الشارقة':'Al Noor Mosque · Central Souq · Wind towers','عجمان':'Ajman Museum · Dhow building · Corniche','أم القيوين':'Mangrove forests · UAQ Fort · Dhows','رأس الخيمة':'Jebel Jais · Dhayah Fort · Zipline','الفجيرة':'Coral reefs · Snoopy Island · Shipwrecks','آيس أبوظبي':'Snow slopes · Igloos · Pine forest','خورفكان':'Khor Fakkan Amphitheatre · Al Rabi Tower · Waterfall','الفضاء':'Hope Probe · Mars · International Space Station'};
+const FCE={'روح الاتحاد':'On 2 December 1971 the United Arab Emirates was declared at Union House in Dubai. The 55th Eid Al Etihad celebrates the families and generations who built the nation.','أبوظبي':'Sheikh Zayed Grand Mosque is one of the largest mosques in the world, with more than 80 white domes.','جزيرة ياس':'Yas Island is one of Abu Dhabi\'s best-known leisure destinations, with a world-class race circuit, theme parks and water parks.','جزيرة السعديات':'The dome of Louvre Abu Dhabi is made of thousands of interlaced stars, letting sunlight fall through like a \"rain of light\".','العين':'The Cultural Sites of Al Ain, including Al Ain Oasis and Hili, are on the UNESCO World Heritage List.','ليوا':'Moreeb Dune in Liwa is one of the highest sand dunes in the world at about 300 metres, and hosts the Liwa International Festival.','دبي':'Burj Khalifa is the tallest building in the world at 828 metres.','الشارقة':'UNESCO named Sharjah the Cultural Capital of the Arab World in 1998.','عجمان':'Ajman Museum is housed in a historic fort that was once the seat of government.','أم القيوين':'The mangrove forests of Umm Al Quwain are a natural home for many birds and sea creatures.','رأس الخيمة':'Jebel Jais is the highest peak in the UAE, and home to one of the longest ziplines in the world.','الفجيرة':'Fujairah is one of the most popular diving spots in the UAE. Snoopy Island is loved by divers for its coral reefs and sea turtles.','آيس أبوظبي':'In Abu Dhabi you can ski on real snow inside an air-conditioned building, even when it is over 45°C outside!','خورفكان':'Khor Fakkan belongs to the Emirate of Sharjah, on the Gulf of Oman coast, between the Hajar Mountains and the sea.','الفضاء':'The Emirati Hope Probe reached Mars orbit in February 2021, making the UAE the first Arab country to reach Mars. In 2023 Sultan Al Neyadi became the first Arab astronaut to walk in space.'};
 const LN=L=>LANG==='en'?(ENT[L.n]||L.n):L.n,LM_=L=>LANG==='en'?(LME[L.n]||L.lm):L.lm,FC_=L=>LANG==='en'?(FCE[L.n]||L.fact):L.fact;
 let dpr=1,scale=1,VW=800,VH=480,offY=0;
 function resize(){dpr=Math.min(2,devicePixelRatio||1);const w=innerWidth,h=innerHeight;cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);scale=Math.min(h/480,w/440);VW=w/scale;VH=h/scale;offY=Math.round(Math.max(0,(VH-480)*0.38)/PX)*PX;pc.width=Math.ceil(VW/PX);pc.height=Math.ceil(VH/PX)}
@@ -132,6 +132,7 @@ const LV=[
 {n:'روح الاتحاد',len:165,lm:'عيد الاتحاد ٥٥ · فخورين بالإمارات · دار الاتحاد',card:'#e8574a',sky:['#f2883a','#e8574a'],diag:1,gr:'#f3b27c',gd:'#c4553e',du:'#d9483c',far:['skyline','proud','mosaic','gate55','stamp55','barch','unionhouse'],mid:'parade',foe:'scorp',fact:'في ٢ ديسمبر ١٩٧١ أُعلن قيام دولة الإمارات العربية المتحدة من دار الاتحاد في دبي. وعيد الاتحاد الـ٥٥ يحتفل بالعائلات والأجيال اللي بنت الوطن.'},
 {n:'أبوظبي',lm:'جامع الشيخ زايد · مبنى الدار · برج أدنوك · البرج المائل · أبراج بينونة',card:'#0e7a5a',sky:['#5db3e6','#fde7c2'],gr:'#ebc689',gd:'#c99a5b',du:'#f1d39c',far:['mosque','adnoc','capitalgate','aldar','baynunah','qasr'],fsp:150,mid:'dunes',foe:'scorp',fact:'جامع الشيخ زايد الكبير من أكبر مساجد العالم، وفيه أكثر من ٨٠ قبة بيضاء.'},
 {n:'جزيرة ياس',lm:'مدينة الملاهي الحمراء · حلبة السباق · الحديقة المائية',card:'#2b3a78',sky:['#2b3a78','#f58a5c'],gr:'#e9cf9f',gd:'#a5845e',du:'#3b3f46',far:['ferrari','yashotel','slides'],mid:'water',sea:1,foe:'fish',fact:'جزيرة ياس من أشهر وجهات الترفيه في أبوظبي، وفيها حلبة سباق عالمية ومدن ملاهي وحدائق مائية.'},
+{n:'آيس أبوظبي',len:190,lm:'منحدرات الثلج · بيوت الإسكيمو · غابة الصنوبر',card:'#2f7fbf',sky:['#8ccbf0','#eef8ff'],gr:'#f4fbff',gd:'#8cc4e4',du:'#e4f2fc',far:['snowmt','igloo','pine'],mid:'snow',ice:1,foe:'peng',boss:1,bossT:'bear',mt:['#a8c8e0','#c4dcee'],fact:'في أبوظبي تقدر تتزلج على ثلج حقيقي داخل مبنى مكيّف، حتى لو كانت الحرارة برا فوق ٤٥ درجة!'},
 {n:'جزيرة السعديات',lm:'اللوفر أبوظبي · متحف زايد الوطني · بيت العائلة الإبراهيمية',card:'#1b8bb0',sky:['#4fb0e8','#eaf7ff'],gr:'#f4e4c1',gd:'#c9ad7e',du:'#f4e4c1',far:['louvre','zayedmus','abrahamic','palm'],mid:'coast',foe:'crab',fact:'قبة اللوفر أبوظبي مصنوعة من آلاف النجوم المتشابكة، والشمس تنزل من خلالها مثل «مطر من الضوء».'},
 {n:'العين',lm:'جبل حفيت · واحة العين · قلعة الجاهلي',card:'#4f8a2e',sky:['#69b7e3','#f9ecc4'],gr:'#d9b77e',gd:'#9c7a50',du:'#7fb85a',far:['hafeet','jahili','hili','palm'],mid:'oasis',foe:'scorp',green:1,mt:['#9a8466','#b09a7a'],fact:'مواقع العين الثقافية، ومنها واحة العين وهيلي، مسجّلة في قائمة اليونسكو للتراث العالمي.'},
 {n:'ليوا',lm:'تل مرعب · واحة ليوا · الهجن',card:'#d86a1c',sky:['#4aa8e8','#ffe7b0'],gr:'#f2b866',gd:'#c07a34',du:'#eea456',far:['moreeb','camel','fort','palm'],mid:'bigdunes',foe:'scorp',fact:'تل مرعب في ليوا من أعلى الكثبان الرملية في العالم بارتفاع حوالي ٣٠٠ متر، وعنده يقام مهرجان ليوا الدولي.'},
@@ -140,7 +141,7 @@ const LV=[
 {n:'عجمان',lm:'متحف عجمان · صناعة المحامل · الكورنيش',card:'#b9862d',sky:['#4ea8d8','#d3eff0'],gr:'#eccf98',gd:'#c49c62',du:'#efd8a8',far:['fort','dhow','barjeel'],mid:'water',foe:'crab',fact:'متحف عجمان يقع داخل حصن تاريخي كان مقرّاً للحكم.'},
 {n:'أم القيوين',lm:'غابات القرم · قلعة أم القيوين · المحامل',card:'#3a8f7b',sky:['#9ad1e6','#fff0d4'],gr:'#e9cf9f',gd:'#bf9a66',du:'#e8d6a8',far:['mangrove','fort','dhow'],mid:'water',sea:1,foe:'fish',fact:'غابات القرم في أم القيوين موطن طبيعي لطيور وكائنات بحرية كثيرة.'},
 {n:'رأس الخيمة',lm:'جبل جيس · قلعة ضاية · خط الانزلاق',card:'#9b5a3a',sky:['#34508f','#f2a25c'],gr:'#c49a72',gd:'#8f6a4b',du:'#a9805e',far:['mount','zip','fort'],mid:'rocks',foe:'scorp',fact:'جبل جيس أعلى قمة في الإمارات، وفيه من أطول خطوط الانزلاق في العالم.'},
-{n:'الفجيرة',lm:'مسجد البدية · قلعة الفجيرة · جبال الحجر',card:'#1f3f73',sky:['#0e1f3d','#33597d'],gr:'#b99870',gd:'#7d6046',du:'#5d4a3a',far:['mount','badiyah','fort'],mid:'water',foe:'crab',night:1,fact:'مسجد البدية في الفجيرة يُعد أقدم مسجد قائم في الإمارات.'},
+{n:'الفجيرة',lm:'الشعاب المرجانية · جزيرة سنوبي · حطام السفن',card:'#0d5c8c',sky:['#1f86c8','#07305a'],gr:'#e6cf96',gd:'#9c7c50',du:'#1f5c7c',far:['reef','wreck','kelp'],mid:'seabed',dive:1,foe:'fish',fact:'الفجيرة من أشهر أماكن الغوص في الإمارات، وفيها جزيرة سنوبي اللي يحبها الغواصين بسبب شعابها المرجانية والسلاحف.'},
 {n:'خورفكان',lm:'مدرج خورفكان · برج الربيع · الشلال',card:'#127a8a',sky:['#6fb6e0','#ffd9a8'],gr:'#e4c592',gd:'#a9845c',du:'#e6cf9e',far:['amphi','rabi','falls','palm','mount'],mid:'coast',foe:'crab',green:1,mt:['#5f7d4a','#76955c'],fact:'خورفكان مدينة تابعة لإمارة الشارقة على ساحل خليج عُمان، تحضنها جبال الحجر من جهة والبحر من الجهة الثانية.'},
 {n:'الفضاء',lm:'مسبار الأمل · المريخ · محطة الفضاء الدولية',card:'#141c44',sky:['#02020e','#1c1650'],gr:'#c8643c',gd:'#7c2c1c',du:'#5c5c70',far:['mars','hope','proud','union','rocket','iss'],mid:'space',foe:'rock',night:1,space:1,low:1,boss:1,fact:'وصل مسبار الأمل الإماراتي إلى مدار المريخ في فبراير ٢٠٢١، وكانت الإمارات أول دولة عربية توصل للمريخ. وفي ٢٠٢٣ صار سلطان النيادي أول رائد فضاء عربي يمشي في الفضاء.'}
 ];
@@ -157,14 +158,15 @@ function build(i){
   for(let x=0;x<W;x++)for(let y=GY;y<H;y++)map[y][x]=1;
   map[9][8]=2;map[9][9]=5;map[9][10]=2;
   foes=[];dates=[];pops=[];items=[];deb=[];
-  const foe=x=>foes.push({x:x*T+4,y:GY*T-18,w:24,h:18,vx:-(0.7+i*0.09),vy:0,on:false,act:false,dead:0});
+  const foe=x=>{if(LV[i].dive){const y0=(3+Math.floor(R()*6))*T;foes.push({x:x*T+4,y:y0,by:y0,w:24,h:18,vx:-(0.6+i*0.04),vy:0,on:false,act:false,dead:0,fly:1,kind:R()<.35?'jelly':'fish',ph:R()*6});return}foes.push({x:x*T+4,y:GY*T-18,w:24,h:18,vx:-(0.7+i*0.09),vy:0,on:false,act:false,dead:0})};
   const date=(x,y)=>dates.push({x:x*T+8,y:y*T+6,got:false});
   const clr=x=>{for(let y=GY;y<H;y++)map[y][x]=0};
   let x=14;
   const BOSS=!!LV[i].boss;boss=null;orbs=[];
   while(x<(BOSS?W-50:W-28)){
     const r=R();
-    if(r<0.22&&LV[i].sea){const n=2+Math.floor(R()*2);for(let k=0;k<n;k++)foe(x+1+k*3);map[8][x+2]=2;map[8][x+3]=3;date(x+2,7);date(x+3,7);x+=n*3+3;}
+    if((r<0.24||r>0.8)&&LV[i].ice){const hs=R()<.5?[1,2,2,1]:[1,2,3,3,2,1];for(let k=0;k<hs.length;k++){for(let y=GY-hs[k];y<GY;y++)map[y][x+k]=1;date(x+k,GY-hs[k]-2)}if(R()<.5)foe(x+hs.length+1);x+=hs.length+3;}
+    else if(r<0.22&&LV[i].sea){const n=2+Math.floor(R()*2);for(let k=0;k<n;k++)foe(x+1+k*3);map[8][x+2]=2;map[8][x+3]=3;date(x+2,7);date(x+3,7);x+=n*3+3;}
     else if(r<0.22){const g=2+Math.floor(R()*(1.5+Math.min(d,4)*0.5));
       for(let k=0;k<g;k++)clr(x+k);
       if(g>=4){map[9][x+1]=2;map[9][x+2]=2;date(x+1,8);date(x+2,8)}else for(let k=0;k<g;k++)date(x+k,9);
@@ -185,7 +187,7 @@ function build(i){
   if(BOSS){for(let k=W-47;k<W;k++){for(let y=0;y<GY;y++)map[y][k]=0;for(let y=GY;y<H;y++)map[y][k]=1}
     [W-39,W-38,W-37,W-27,W-26,W-25].forEach(k=>map[8][k]=6);for(let y=0;y<GY;y++)map[y][W-17]=6;
     foes=foes.filter(e=>e.x<(W-48)*T);dates=dates.filter(d=>d.x<(W-48)*T);
-    boss={x:(W-22)*T,y:GY*T-72,w:56,h:72,vx:-1.2,vy:0,hp:5,inv:0,act:0,t:0,dead:0,on:false}}
+    boss=LV[i].bossT==='bear'?{x:(W-24)*T,y:GY*T-48,w:96,h:48,vx:-1.2,vy:0,hp:3,max:3,bear:1,inv:0,act:0,t:0,dead:0,on:false}:{x:(W-22)*T,y:GY*T-72,w:56,h:72,vx:-1.2,vy:0,hp:5,max:5,inv:0,act:0,t:0,dead:0,on:false}}
   else{const sx=W-22;for(let k=0;k<5;k++)for(let y=GY-1-k;y<GY;y++)map[y][sx+k]=6}
   flagX=W-15;map[GY-1][flagX]=6;
   if(!map.some(row=>row.includes(7))){out:for(let x=30;x<W;x++)for(let y=0;y<GY;y++)if(map[y][x]===3){map[y][x]=7;break out}}
@@ -213,7 +215,7 @@ function shrink(){P.big=false;P.pend=0;P.y+=16;P.h=28;P.x+=2;P.w=20}
 function curMus(){return P.star>0?-1:(boss&&boss.act&&!boss.dead)?-2:li}
 function hitBoss(){const B=boss;B.hp--;B.inv=70;sfx('stomp');sfx('break');if(B.hp<=0){B.dead=1;B.vy=-7;orbs=[];sfx('power');
   for(let y=0;y<GY;y++)if(map[y][W-17]===6){map[y][W-17]=0;deb.push({x:(W-17)*T+8,y:y*T+8,vx:(y%2?2:-2),vy:-6,t:0})}
-  banner(L_('هزمت الجهل!','Ignorance defeated!'),L_('العلم نور… كمّل للعلم','Knowledge is light… go raise the flag!'));musicStart(li)}}
+  if(B.bear)banner(L_('هزمت الدب القطبي!','Polar bear defeated!'),L_('كمّل وارفع العلم','Go raise the flag!'));else banner(L_('هزمت الجهل!','Ignorance defeated!'),L_('العلم نور… كمّل للعلم','Knowledge is light… go raise the flag!'));musicStart(li)}}
 function banner(t,s){const it=$('#intro');it.querySelector('b').textContent=t;it.querySelector('span').textContent=s;it.classList.add('show');clearTimeout(introT);introT=setTimeout(()=>it.classList.remove('show'),3200)}
 function starOn(){P.star=600;sfx('power');musicStart(-1)}
 function power(){sfx('power');if(P.big){P.hp=Math.min(5,P.hp+1);hud()}else P.pend=1}
@@ -226,15 +228,17 @@ function step(){
   if(state==='map'){fr++;mapT++;if(CH.on&&mapT>MAPDUR+45)start(mapB);return}
   if(state!=='play'&&state!=='win')return;fr++;
   for(const p of pops)p.t++;for(const d of deb){d.t++;d.vy+=.5;d.x+=d.vx;d.y+=d.vy}deb=deb.filter(d=>d.t<70);pops=pops.filter(p=>p.t<32);if(bump&&--bump.t<=0)bump=null;
-  const G=LV[li].low?.3:.55;
+  const DV=LV[li].dive,IC=LV[li].ice,G=DV?.14:LV[li].low?.3:.55;
   if(state==='win'){winT++;P.vx=0;P.vy=Math.min(P.vy+0.4,4);moveY(P);{const tg=Math.max(0,W*T-VW);cam+=(tg-cam)*0.06}if(winT===140)won();return}
   const ax=(K.r?1:0)-(K.l?1:0);
-  if(ax){P.vx+=ax*(P.on?0.55:0.4);P.face=ax}else P.vx*=P.on?0.78:0.96;
-  const mx=P.star>0?5.4:4.3;P.vx=Math.max(-mx,Math.min(mx,P.vx));if(Math.abs(P.vx)<0.05)P.vx=0;
+  if(ax){P.vx+=ax*(DV?.28:IC&&P.on?.3:P.on?0.55:0.4);P.face=ax}else P.vx*=DV?.94:IC&&P.on?.985:P.on?0.78:0.96;
+  const mx=P.star>0?5.4:DV?3.2:IC?5.2:4.3;P.vx=Math.max(-mx,Math.min(mx,P.vx));if(Math.abs(P.vx)<0.05)P.vx=0;
   if(P.on)P.co=7;else if(P.co>0)P.co--;
+  if(DV&&P.jb>0){P.vy=-4.6;P.jb=0;sfx('jump')}
   if(P.jb>0)P.jb--;
   if(P.jb>0&&P.co>0){P.vy=LV[li].low?-10.5:-12;P.co=0;P.jb=0;sfx('jump')}
-  P.vy+=(!K.j&&P.vy<0)?G*2:G;if(P.vy>(G<.5?7:13))P.vy=G<.5?7:13;
+  if(DV){P.vy+=G;if(P.vy>2.4)P.vy=2.4;if(P.y<6){P.y=6;if(P.vy<0)P.vy=0}}else{P.vy+=(!K.j&&P.vy<0)?G*2:G;if(P.vy>(G<.5?7:13))P.vy=G<.5?7:13}
+  if(IC&&P.on&&Math.abs(P.vx)>.2){const fx=P.vx>0?Math.floor((P.x+P.w+P.vx)/T):Math.floor((P.x+P.vx)/T),fy=Math.floor((P.y+P.h-1)/T);if(sol(fx,fy)&&!sol(fx,fy-1)&&free(P.x+P.vx,P.y-T,P.w,P.h))P.y-=T}
   if(moveX(P))P.vx=0;
   const hd=moveY(P);
   if(hd){const[tx,ty]=hd,t=map[ty][tx];
@@ -252,13 +256,14 @@ function step(){
   for(const e of foes){
     if(e.dead){e.dead++;continue}
     if(!e.act){if(e.x<cam+VW+64)e.act=true;else continue}
+    if(e.fly){e.t2=(e.t2||0)+1;e.x+=e.vx*(e.kind==='jelly'?.45:1);const ft=Math.floor((e.vx>0?e.x+e.w:e.x)/T);if(sol(ft,Math.floor((e.y+e.h/2)/T))||e.t2%420===0)e.vx=-e.vx;e.y=e.by+Math.sin(e.t2*(e.kind==='jelly'?.04:.025)+e.ph)*(e.kind==='jelly'?30:12)}else{
     e.vy=Math.min(e.vy+G,12);if(LV[li].sea&&e.on){e.hp2=(e.hp2||((e.x*7)%90)+40)-1;if(e.hp2<=0){e.vy=-7.5;e.hp2=80+((e.x*13)%70)}}
     if(moveX(e))e.vx=-e.vx;moveY(e);
-    if(e.on){const ax2=e.vx>0?Math.floor((e.x+e.w+1)/T):Math.floor((e.x-1)/T);if(!sol(ax2,Math.floor((e.y+e.h+2)/T)))e.vx=-e.vx}
+    if(e.on){const ax2=e.vx>0?Math.floor((e.x+e.w+1)/T):Math.floor((e.x-1)/T);if(!sol(ax2,Math.floor((e.y+e.h+2)/T)))e.vx=-e.vx}}
     if(e.y>H*T+40){e.dead=999;continue}
     if(ov(P,e)&&P.star>0){e.dead=1;sfx('stomp');continue}
     if(ov(P,e)){
-      if(P.vy>0&&P.y+P.h-e.y<(P.big?22:16)){e.dead=1;P.vy=K.j?-11:-7.5;sfx('stomp')}
+      if(P.vy>0&&P.y+P.h-e.y<(P.big?22:16)){e.dead=1;P.vy=DV?-3.5:K.j?-11:-7.5;sfx('stomp')}
       else if(P.inv<=0){hurt(false);if(state!=='play')return}
     }
   }
@@ -267,7 +272,7 @@ function step(){
     it.vy=Math.min(it.vy+G,10);if(moveX(it))it.vx=-it.vx;moveY(it);if(it.kind==='date'&&it.on)it.vy=LV[li].low?-6:-8.5;if(it.y>H*T+40)it.gone=1}
   items=items.filter(i=>!i.gone);
   if(boss){const B=boss;
-    if(!B.act&&P.x>(W-44)*T){B.act=1;banner(L_('الوحش الأخير: الجهل','Final boss: IGNORANCE'),L_('اقفز على راسه ٥ مرات… العلم نور!','Jump on its head 5 times… knowledge is light!'));musicStart(-2)}
+    if(!B.act&&P.x>(W-44)*T){B.act=1;if(B.bear)banner(L_('الوحش: الدب القطبي','Boss: POLAR BEAR'),L_('اقفز على راسه ٣ مرات… وانتبه من كور الثلج!','Jump on its head 3 times… dodge the snowballs!'));else banner(L_('الوحش الأخير: الجهل','Final boss: IGNORANCE'),L_('اقفز على راسه ٥ مرات… العلم نور!','Jump on its head 5 times… knowledge is light!'));musicStart(-2)}
     if(B.act&&!B.dead){B.t++;if(B.inv>0)B.inv--;B.vy=Math.min(B.vy+G,10);const dir=P.x+P.w/2<B.x+B.w/2?-1:1;
       if(B.t%200<140)B.vx+=(dir*(B.hp<=2?2.2:1.5)-B.vx)*.05;
       if(moveX(B))B.vx=-B.vx;if(B.x<(W-46)*T){B.x=(W-46)*T;B.vx=Math.abs(B.vx)}moveY(B);
@@ -290,6 +295,13 @@ function flag(x,y,w,h){c.fillStyle='#c8102e';c.fillRect(x,y,w/4,h);c.fillStyle='
 function minaret(x,b,h,col,tip){c.fillStyle=col;c.fillRect(x-5,b-h,10,h);c.fillRect(x-8,b-h*.8,16,5);c.fillStyle=tip;c.beginPath();c.moveTo(x-5,b-h);c.lineTo(x,b-h-22);c.lineTo(x+5,b-h);c.fill()}
 function hills(pts,col){c.fillStyle=col;c.beginPath();c.moveTo(pts[0],pts[1]);for(let i=2;i<pts.length;i+=2)c.lineTo(pts[i],pts[i+1]);c.closePath();c.fill()}
 const LM={
+  snowmt(x,b){hills([x-330,b,x-130,b-210,x-50,b-150,x+60,b-290,x+210,b-130,x+330,b],'#9cc0dc');hills([x+60,b-290,x+100,b,x-10,b],'#b8d4ea');hills([x-130,b-210,x-180,b-148,x-150,b-140,x-118,b-160,x-84,b-150],'#fcfcfc');hills([x+60,b-290,x+5,b-222,x+38,b-230,x+70,b-212,x+112,b-226],'#fcfcfc')},
+  igloo(x,b){c.fillStyle='#f4fbff';c.beginPath();c.ellipse(x,b,130,100,0,Math.PI,2*Math.PI);c.fill();c.strokeStyle='#a8cce6';c.lineWidth=5;for(let k=1;k<4;k++){const yy=b-k*25,hw=130*Math.sqrt(1-(k*25/100)**2);c.beginPath();c.moveTo(x-hw,yy);c.lineTo(x+hw,yy);c.stroke();for(let q=-3;q<=3;q++){const xx=x+q*hw/3.5+(k%2?hw/7:0);c.beginPath();c.moveTo(xx,yy);c.lineTo(xx,yy+25);c.stroke()}}
+    c.fillStyle='#e4f2fc';arch(x+70,b,32,62);c.fillStyle='#3c5c7c';arch(x+70,b,20,46)},
+  pine(x,b){for(const [o,sc2] of [[-90,.8],[0,1.1],[95,.9]]){const tx=x+o;c.fillStyle='#5c3c20';c.fillRect(tx-8,b-30*sc2,16,30*sc2);for(let j=0;j<3;j++){const w2=(90-j*22)*sc2,yb=b-30*sc2-j*55*sc2;c.fillStyle='#2c6c4c';c.beginPath();c.moveTo(tx-w2,yb);c.lineTo(tx,yb-80*sc2);c.lineTo(tx+w2,yb);c.fill();c.fillStyle='#fcfcfc';c.beginPath();c.moveTo(tx-w2*.5,yb-40*sc2);c.lineTo(tx,yb-80*sc2);c.lineTo(tx+w2*.5,yb-40*sc2);c.lineTo(tx,yb-52*sc2);c.fill()}}},
+  reef(x,b){const cols=['#e8607a','#fc9838','#f8c838','#c86ad8'];for(let k=0;k<5;k++){const cx=x-200+k*100,hh=90+(k*37)%70;c.strokeStyle=cols[k%4];c.lineWidth=14;for(let a=-2;a<=2;a++){c.beginPath();c.moveTo(cx,b);c.quadraticCurveTo(cx+a*20,b-hh*.6,cx+a*34,b-hh-(a%2)*20);c.stroke()}c.fillStyle=cols[(k+1)%4];c.beginPath();c.ellipse(cx+50,b,40,28,0,Math.PI,2*Math.PI);c.fill()}},
+  wreck(x,b){c.save();c.translate(x,b);c.rotate(-.12);c.fillStyle='#5a3a24';c.beginPath();c.moveTo(-230,-20);c.lineTo(230,-60);c.lineTo(190,30);c.lineTo(-190,30);c.closePath();c.fill();c.fillStyle='#3c2414';c.fillRect(-150,-140,70,100);c.fillRect(40,-110,12,70);c.fillStyle='#8ad8fc';for(let k=-160;k<160;k+=45){c.beginPath();c.arc(k,-15,9,0,7);c.fill()}c.restore()},
+  kelp(x,b){for(let k=0;k<7;k++){const kx=x-180+k*60,hh=200+(k*53)%120;c.strokeStyle=k%2?'#2c8c4c':'#3ca85c';c.lineWidth=12;c.beginPath();c.moveTo(kx,b);for(let j=1;j<=6;j++)c.lineTo(kx+Math.sin(j*1.3+k)*22,b-hh*j/6);c.stroke()}},
   mosque(x,b){c.fillStyle='#fbf8f1';c.fillRect(x-150,b-50,300,50);dome(x,b-50,46,64);dome(x-78,b-50,24,32);dome(x+78,b-50,24,32);dome(x-122,b-50,14,20);dome(x+122,b-50,14,20);
     for(const m of[-162,162])minaret(x+m,b,170,'#fbf8f1','#d9b45a');c.fillStyle='#d7cbb4';for(let i=-130;i<=130;i+=20)arch(x+i,b,6,26)},
   qasr(x,b){c.fillStyle='#f7f5ef';c.fillRect(x-150,b-64,300,64);dome(x,b-64,58,66,'#fdfcf8','#d8d2c6');dome(x-96,b-64,26,28);dome(x+96,b-64,26,28);c.fillStyle='#cfc3ad';for(let i=-135;i<=135;i+=18)arch(x+i,b-6,6,30)},
@@ -440,7 +452,25 @@ const SP={};
   const SB=['..WWWWWWW...','.WWWWWWWWW..','.WWWGWWWSS..','.WWWGWWWW...','..WWGWWWW...','..WWGWWWW...','..WWWWWWW...'];
   const mk=(body,leg,p)=>pair(spr([...SH,...body,leg],p)),set=(body,p)=>({a:mk(body,'..BB...BB...',p),b:mk(body,'...BBBB.....',p),j:mk(body,'.BB.....BB..',p)});
   const BB=SB.flatMap(r=>[r,r]),tints=[{W:'#fcbc3c',G:'#c07c00'},{W:'#fc7460',G:'#c03c20'},{W:'#80e0fc',G:'#2c8cc0'}];
-  SP.sm=set(SB,pal);SP.big=set(BB,pal);SP.smT=tints.map(t=>set(SB,{...pal,...t}));SP.bigT=tints.map(t=>set(BB,{...pal,...t}));
+  SP.sm=set(SB,pal);SP.big=set(BB,pal);
+  {const SHs=['.....WW.....','...RRRRRR...','..RRRRRRRR..','.WWWWWWWWW..','.KKYYYYYY...','.KSYCCYCCY..','..SSSSSSSS..','..SSSSSS....'],ps={...pal,R:'#e41c1c',K:'#101010',Y:'#fcbc3c',C:'#3cbcfc',B:'#1c3c8c',G:'#fcfcfc'};
+   const bs=SB.map(r=>r.replace(/W/g,'R')),bb=bs.flatMap(r=>[r,r]),mkS=(body,leg)=>pair(spr([...SHs,...body,leg],ps)),ss=body=>({a:mkS(body,'..BB...BB...'),j:mkS(body,'.BB.....BB..')});
+   SP.ski=ss(bs);SP.skiB=ss(bb);SP.skis=pair(spr(['...................R','RRRRRRRRRRRRRRRRRRR.'],{R:'#e41c1c'},'#101010'))}
+  {const sc2=(k,f)=>{const o=mkc(Math.round(k.width*f),Math.round(k.height*f)),x=o.getContext('2d');x.imageSmoothingEnabled=false;x.drawImage(k,0,0,o.width,o.height);return o};
+   const swp={S:'#1c3c8c',R:'#e41c1c',Y:'#fcbc3c',F:'#00a800',G:'#8ad8fc',E:'#e0985c',K:'#101010'};
+   const SW1=['..........YYYYYY.......','..........YYYYYY...SSS.','F......SSSSSSSSSSSSSGGG','FF...SSSRRRRSSSSSSSEGGG','FFFSSSSSSSSSSSSSSSSEEEE','FF...SSSRRRRSSSSSSS.EE.','F.......SS.....SS......'];
+   const SW2=['..........YYYYYY.......','..........YYYYYY...SSS.','.......SSSSSSSSSSSSSGGG','F....SSSRRRRSSSSSSSEGGG','FFFSSSSSSSSSSSSSSSSEEEE','FFF..SSSRRRRSSSSSSS.EE.','.F......SS....SS.......'];
+   const sw0=[pair(spr(SW1,swp)),pair(spr(SW2,swp))];SP.swim=sw0.map(p=>p.map(k=>sc2(k,1.35)));SP.swimB=sw0.map(p=>p.map(k=>sc2(k,1.85)));
+   const pp={B:'#1c1c2c',W:'#fcfcfc',O:'#fc9838'};
+   const PG=['...BBBB.....','..BBBBBB....','..BBWWBWB...','.BBWWWWOO...','.BBWWWWB....','BBWWWWWWB...','BBWWWWWWB...','.BWWWWWWB...','.BBWWWWBB...'];
+   SP.peng=[pair(spr([...PG,'..O....O....'],pp)),pair(spr([...PG,'...OO.OO....'],pp))];
+   const jp={P:'#f878c0',W:'#fcd8f0'},JT=['..PPPPPP..','.PPWWPPPP.','PPWPPPPPPP','PPPPPPPPPP','PPPPPPPPPP'];
+   SP.jelly=[pair(spr([...JT,'P..P..P..P','.P..P..P..','P..P..P..P'],jp)),pair(spr([...JT,'.P..P..P..','P..P..P..P','.P..P..P..'],jp))];
+   const BR=['........................WW......','.......................WWWW.WW..','....WWWWWWWWWWWWWWW...WWWWWWWW..','..WWWWWWWWWWWWWWWWWWWWWWWWWKWW..','.WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW.','WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWK','WWWWWWWWWWWWWWWWWWWWWWWWWWWWWW..','WWWWWWWWWWWWWWWWWWWWWWWLLWWWW...','LWWWWWWWWWWWWWWWWWWWWWWLLLL.....','LLWWWWWWWWWWWWWWWWWWWWWLL.......','.LLWWWWLLLWWWWWWWWLLWWWWL.......'];
+   const L1=['..LWWWL..LWWW..LWWWL.LWWW.......','..LWWWL..LWWW..LWWWL.LWWW.......','..KKKK...KKKK..KKKK..KKKK.......'],L2=['...LWWWL.LWWW...LWWWLLWWW.......','...LWWWL.LWWW...LWWWLLWWW.......','...KKKK..KKKK....KKKK.KKKK......'];
+   const bp={W:'#fcfcfc',L:'#c8dcec',K:'#101010'},bf={W:'#fcb0a0',L:'#f08070',K:'#101010'};
+   SP.bear=[pair(sc2(spr([...BR,...L1],bp,'#2c3c4c'),1.5)),pair(sc2(spr([...BR,...L2],bp,'#2c3c4c'),1.5)),pair(sc2(spr([...BR,...L1],bf,'#2c3c4c'),1.5))];
+   SP.snowb=spr(['.WWWW.','WWWWLW','WWWWWW','WLWWWW','WWWWLW','.WWWW.'],{W:'#fcfcfc',L:'#c8dcec'},'#5c7c9c')}SP.smT=tints.map(t=>set(SB,{...pal,...t}));SP.bigT=tints.map(t=>set(BB,{...pal,...t}));
   const sp={C:'#c0661c',D:'#6c3008',R:'#e83018',Y:'#fcfcfc'};
   const SC=['...DDD..........','..D...D.........','..D....R........','..D.............','..D.............','..D......C.C.D.D','..DCCCCCCCCC.DD.','..CCCCCCCCCYCD..','.CCCCCCCCCCCC...','..DDDDDDDDDD....'];
   SP.scorp=[pair(spr([...SC,'.D.D.D..D.D.D...'],sp)),pair(spr([...SC,'..D.D.D..D.D.D..'],sp))];
@@ -477,7 +507,8 @@ const SP={};
   SP.orb=spr(['..PPPP..','.PPWWPP.','PPPPPWPP','PPPPWPPP','PPPWPPPP','PPPPPPPP','.PPWPPP.','..PPPP..'],{P:'#7c4cb0',W:'#fcfcfc'},'#1b0c2c');
 }
 function mkTiles(L){
-  const g=top=>{if(L.sea){const k=mkc(16,16),x=k.getContext('2d'),p=(c2,a2,b2,w=1,h=1)=>{x.fillStyle=c2;x.fillRect(a2,b2,w,h)};p('#1c7cd0',0,0,16,16);p('#1568b8',0,8,16,8);[[2,6],[9,11],[13,4],[5,13]].forEach(([a2,b2])=>p('#3c9ce8',a2,b2,3,1));if(top){p('#3cbcfc',0,0,16,4);p('#fcfcfc',0,0,16,1);[[1,1],[2,2],[6,1],[10,1],[11,2],[14,1]].forEach(([a2,b2])=>p('#fcfcfc',a2,b2));p('#8ad8fc',0,4,16,1)}return k}
+  const g=top=>{if(L.ice){const k=mkc(16,16),x=k.getContext('2d'),p=(c2,a2,b2,w=1,h=1)=>{x.fillStyle=c2;x.fillRect(a2,b2,w,h)};p('#cfe9f8',0,0,16,16);[[2,5],[9,9],[12,3],[4,12],[13,13]].forEach(([a2,b2])=>p('#eaf6ff',a2,b2,3,1));[[6,7],[1,14],[11,10]].forEach(([a2,b2])=>p('#a8d4f0',a2,b2,2,1));if(top){p('#fcfcfc',0,0,16,5);p('#e4f2fc',0,5,16,1);[[1,6],[5,6],[6,6],[10,6],[14,6]].forEach(([a2,b2])=>p('#fcfcfc',a2,b2));p('#c8e2f4',0,6,1,1)}return k}
+    if(L.sea){const k=mkc(16,16),x=k.getContext('2d'),p=(c2,a2,b2,w=1,h=1)=>{x.fillStyle=c2;x.fillRect(a2,b2,w,h)};p('#1c7cd0',0,0,16,16);p('#1568b8',0,8,16,8);[[2,6],[9,11],[13,4],[5,13]].forEach(([a2,b2])=>p('#3c9ce8',a2,b2,3,1));if(top){p('#3cbcfc',0,0,16,4);p('#fcfcfc',0,0,16,1);[[1,1],[2,2],[6,1],[10,1],[11,2],[14,1]].forEach(([a2,b2])=>p('#fcfcfc',a2,b2));p('#8ad8fc',0,4,16,1)}return k}
     const k=mkc(16,16),x=k.getContext('2d'),dk=shade(L.gr,.72),lt=shade(L.gr,1.22),p=(c2,a2,b2,w=1,h=1)=>{x.fillStyle=c2;x.fillRect(a2,b2,w,h)};
     p(L.gr,0,0,16,16);p(dk,0,7,9,1);p(dk,9,8,7,1);p(dk,3,13,8,1);p(shade(L.gr,.82),11,12,5,1);
     [[3,3],[12,4],[6,10],[14,14],[1,12],[9,2]].forEach(([a2,b2])=>p(dk,a2,b2));[[4,4],[13,10],[7,14],[10,5]].forEach(([a2,b2])=>p(lt,a2,b2));
@@ -494,7 +525,13 @@ function mkTiles(L){
     p('#e8b030',6,6,4,5);p('#fce890',6,6,4,1);p('#2c1204',7,8,2,1);p('#2c1204',7,9,1,1);
     if(shine){p('#ffffff',13,2);p('#fff4c0',12,2);p('#fff4c0',13,3);p('#ffffff',2,8)}return k};
   const u=mkc(16,16),ux=u.getContext('2d'),pu=(c2,a2,b2,w=1,h=1)=>{ux.fillStyle=c2;ux.fillRect(a2,b2,w,h)};pu('#2c1204',0,0,16,16);pu('#5c2e10',1,1,14,14);pu('#4a240c',1,5,14,1);pu('#8a6a30',3,1,2,14);pu('#8a6a30',11,1,2,14);pu('#8a6a30',6,6,4,5);pu('#2c1204',7,7,2,3);
-  return{g:g(0),gt:g(1),br,hd,q0:q(0),q1:q(1),u}}
+  let BR2=br,HD2=hd,rr2=null,rl2=null;
+  if(L.ice){const blk=(b0,lt,dk)=>{const k=mkc(16,16),x=k.getContext('2d'),p=(c2,a2,b2,w=1,h=1)=>{x.fillStyle=c2;x.fillRect(a2,b2,w,h)};p(b0,0,0,16,16);p(lt,0,0,16,1);p(lt,0,0,1,16);p(dk,0,15,16,1);p(dk,15,0,1,16);for(let i=0;i<5;i++)p('#f4fcff',3+i,9-i);p('#f4fcff',10,4,2,1);p(shade(b0,.85),4,12,6,1);return k};
+    BR2=blk('#9fd4f4','#e6f6ff','#5ca8d8');HD2=blk('#7cc0ec','#d0ecfc','#3c88c0');
+    const ramp=dir=>{const k=mkc(16,16),x=k.getContext('2d');for(let y=0;y<16;y++)for(let i=0;i<16;i++){const ii=dir>0?i:15-i;if(ii>=15-y){x.fillStyle=ii<=16-y?'#fcfcfc':y>12?'#cfe9f8':'#f4fbff';x.fillRect(i,y,1,1)}}return k};rr2=ramp(1);rl2=ramp(-1)}
+  if(L.dive){const k=mkc(16,16),x=k.getContext('2d'),p=(c2,a2,b2,w=1,h=1)=>{x.fillStyle=c2;x.fillRect(a2,b2,w,h)};p('#e8607a',0,0,16,16);p('#fc94a8',0,0,16,2);p('#b83c58',0,14,16,2);[[2,4],[8,3],[12,7],[4,9],[10,11],[6,13]].forEach(([a2,b2])=>{p('#9c2c48',a2,b2,2,2);p('#fcc4d0',a2,b2-1,2,1)});BR2=k;
+    const h=mkc(16,16),hx2=h.getContext('2d'),q2=(c2,a2,b2,w=1,hh=1)=>{hx2.fillStyle=c2;hx2.fillRect(a2,b2,w,hh)};q2('#5c7c74',0,0,16,16);q2('#7c9c90',0,0,16,1);q2('#7c9c90',0,0,1,16);q2('#3c5450',0,15,16,1);q2('#3c5450',15,0,1,16);[[3,3],[9,5],[5,10],[11,12]].forEach(([a2,b2])=>q2('#46625c',a2,b2,3,2));q2('#2c8c4c',2,0,2,2);q2('#2c8c4c',11,0,1,3);HD2=h}
+  return{g:g(0),gt:g(1),br:BR2,hd:HD2,q0:q(0),q1:q(1),u,rr:rr2,rl:rl2}}
 const LMC={},LSC={aldar:.85,adnoc:.78,capitalgate:.9,skyline:.62,mosaic:.62,stamp55:.68,gate55:.72,barch:.68,unionhouse:.8,museum:.72,aindubai:.85,palmj:.33,world:.38};
 const PRI={img:new Image(),ready:false};PRI.img.onload=()=>{PRI.ready=true;for(const k in LMC)if(k.startsWith('proud'))delete LMC[k]};PRI.img.src='data:image/png;base64,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';
 function drawBgDiag(L){const pw=pc.width,ph=pc.height,hz=oy+192;c.fillStyle=L.sky[0];c.fillRect(0,0,pw,ph);c.fillStyle=L.sky[1];
@@ -511,7 +548,7 @@ function lmS(n,L){const key=n+L.n;if(LMC[key])return LMC[key];
   qx.putImageData(id,0,0);outline(q,shade(L.sky[1],.4));const dd=qx.getImageData(0,0,pw,ph).data;let x0=pw,y0=ph,x1=0,y1=0;
   for(let y=0;y<ph;y++)for(let x=0;x<pw;x++)if(dd[(y*pw+x)*4+3]){if(x<x0)x0=x;if(x>x1)x1=x;if(y<y0)y0=y;if(y>y1)y1=y}
   return LMC[key]={img:q,ax:pw/2,ay:ph-10,bx:x0,by:y0,bw:x1-x0+1,bh:y1-y0+1}}
-const EN={'روح الاتحاد':'SPIRIT OF THE UNION','أبوظبي':'ABU DHABI','جزيرة ياس':'YAS ISLAND','جزيرة السعديات':'SAADIYAT ISLAND','العين':'AL AIN','ليوا':'LIWA','دبي':'DUBAI','الشارقة':'SHARJAH','عجمان':'AJMAN','أم القيوين':'UMM AL QUWAIN','رأس الخيمة':'RAS AL KHAIMAH','الفجيرة':'FUJAIRAH','خورفكان':'KHOR FAKKAN','الفضاء':'SPACE'};
+const EN={'روح الاتحاد':'SPIRIT OF THE UNION','أبوظبي':'ABU DHABI','جزيرة ياس':'YAS ISLAND','جزيرة السعديات':'SAADIYAT ISLAND','العين':'AL AIN','ليوا':'LIWA','دبي':'DUBAI','الشارقة':'SHARJAH','عجمان':'AJMAN','أم القيوين':'UMM AL QUWAIN','رأس الخيمة':'RAS AL KHAIMAH','الفجيرة':'FUJAIRAH','آيس أبوظبي':'ICE ABU DHABI','خورفكان':'KHOR FAKKAN','الفضاء':'SPACE'};
 function txt(str,font,col,ol){const k=mkc(8,8);let x=k.getContext('2d');x.font=font;const w=Math.ceil(x.measureText(str).width)+16,h=Math.ceil(parseInt(font.replace(/^\d00 /,''))*2.2)+6;k.width=w;k.height=h;x=k.getContext('2d');
   x.font=font;x.textBaseline='middle';x.textAlign='center';x.fillStyle=col;x.fillText(str,w/2,h/2);const id=x.getImageData(0,0,w,h),d=id.data,cc=hex(col);
   for(let i=0;i<d.length;i+=4){if(d[i+3]<110)d[i+3]=0;else{d[i]=cc[0];d[i+1]=cc[1];d[i+2]=cc[2];d[i+3]=255}}x.putImageData(id,0,0);return ol?outline(k,ol):k}
@@ -525,12 +562,16 @@ function sign(L){if(SIGN[L.n])return SIGN[L.n];const w=156,h=132,by=56,bh=62,k=m
   x.fillStyle='#00a800';x.fillRect(12,by+bh-12,w-16,3);x.fillStyle='#101010';x.fillRect(12,by+bh-6,w-16,3);
   const ar=txt(L.n,(L.n.length>9?18:L.n.length>6?22:28)+'px Lalezar,Cairo,sans-serif',L.card,null);x.drawImage(ar,Math.round((w+8-ar.width)/2),by+24-(ar.height>>1));
   const en=txt(EN[L.n]||'','700 9px Cairo,sans-serif','#1b140c',null);x.drawImage(en,Math.round((w+8-en.width)/2),by+41-(en.height>>1));
-  const IC={'روح الاتحاد':'unionhouse','أبوظبي':'mosque','جزيرة ياس':'ferrari','جزيرة السعديات':'louvre','العين':'jahili','ليوا':'moreeb','دبي':'khalifa','الشارقة':'noor','عجمان':'fort','أم القيوين':'mangrove','رأس الخيمة':'fort','الفجيرة':'badiyah','خورفكان':'amphi','الفضاء':'rocket'};
+  const IC={'روح الاتحاد':'unionhouse','أبوظبي':'mosque','جزيرة ياس':'ferrari','جزيرة السعديات':'louvre','العين':'jahili','ليوا':'moreeb','دبي':'khalifa','الشارقة':'noor','عجمان':'fort','أم القيوين':'mangrove','رأس الخيمة':'fort','الفجيرة':'wreck','آيس أبوظبي':'igloo','خورفكان':'amphi','الفضاء':'rocket'};
   const s=lmS(IC[L.n]||L.far[0],L),sc=Math.min(1,50/s.bh,110/s.bw),dw=Math.max(2,Math.round(s.bw*sc)),dh=Math.max(2,Math.round(s.bh*sc)),ic=mkc(dw,dh),ix=ic.getContext('2d');
   ix.imageSmoothingEnabled=true;ix.imageSmoothingQuality='high';ix.drawImage(s.img,s.bx,s.by,s.bw,s.bh,0,0,dw,dh);const id=ix.getImageData(0,0,dw,dh),d=id.data;for(let i=3;i<d.length;i+=4)d[i]=d[i]>90?255:0;ix.putImageData(id,0,0);
   x.drawImage(outline(ic,'#1b140c'),Math.round(w/2-dw/2),by-dh);
   return SIGN[L.n]=k}
 const MID={
+  snow(x0,L,oy,pw,ph){for(let s=0;s<pw;s+=2){const w=s+x0,h=Math.round(oy+170+Math.sin(w*.011)*9+Math.sin(w*.031)*4);c.fillStyle='#fcfcfc';c.fillRect(s,h,2,ph-h);c.fillStyle=Math.cos(w*.011)>0?'#e4f2fc':'#cfe6f6';c.fillRect(s,h+6,2,ph-h)}
+    const i0=Math.floor(x0/44)-1;for(let i=i0;i<i0+pw/44+3;i++){const x=i*44-x0+((i*29)%18+18)%18,b=oy+184+((i*7)%6+6)%6;c.fillStyle='#5c3c20';c.fillRect(x+5,b-4,2,4);[[0,10,12],[2,8,8],[4,6,4]].forEach(([o,w2,hh],j)=>{c.fillStyle='#2c6c4c';c.fillRect(x+6-w2/2,b-4-j*5-5,w2,5);c.fillStyle='#fcfcfc';c.fillRect(x+6-w2/2,b-4-j*5-5,w2,1)})}},
+  seabed(x0,L,oy,pw,ph){for(let s=0;s<pw;s+=2){const w=s+x0,h=Math.round(oy+176+Math.sin(w*.014)*6+Math.sin(w*.04)*3);c.fillStyle=L.du;c.fillRect(s,h,2,ph-h);c.fillStyle=shade(L.du,1.25);c.fillRect(s,h,2,1)}
+    const i0=Math.floor(x0/26)-1;for(let i=i0;i<i0+pw/26+3;i++){const x=i*26-x0+((i*17)%12+12)%12,b=oy+186,hh=10+((i*13)%14+14)%14;c.fillStyle=i%3?'#2c8c4c':'#e8607a';for(let j=0;j<hh;j+=2)c.fillRect(x+Math.round(Math.sin(fr*.05+i+j*.3)*2),b-j,2,2)}},
   bigdunes(x0,L,oy,pw,ph){const lt=shade(L.du,1.18),dk=shade(L.du,.82);for(let s=0;s<pw;s+=2){const w=s+x0,h=Math.round(oy+170+Math.sin(w*.009)*13+Math.sin(w*.027)*5);c.fillStyle=Math.cos(w*.009)>0?L.du:dk;c.fillRect(s,h,2,ph-h);c.fillStyle=lt;c.fillRect(s,h,2,1)}},
   parade(x0,L,oy,pw,ph){c.fillStyle=shade(L.sky[1],.82);c.fillRect(0,oy+176,pw,ph);c.fillStyle=shade(L.sky[1],1.2);c.fillRect(0,oy+176,pw,1);
     const sp=30,i0=Math.floor(x0/sp)-1;for(let i=i0;i<i0+pw/sp+3;i++){const t=((i*7)%3+3)%3,x=i*sp-x0+((i*13)%10+10)%10,up=((fr>>4)+i)%2;person(x,oy+190-(t===2?0:0),t,up)}},
@@ -560,20 +601,25 @@ function drawBg(L){if(L.diag)return drawBgDiag(L);const pw=pc.width,ph=pc.height
   const a=hex(L.sky[0]),b=hex(L.sky[1]),N=7;for(let i=0;i<N;i++){const t=i/(N-1);c.fillStyle=rgb(a.map((v,k)=>v+(b[k]-v)*t));const y0=Math.floor(hz*i/N),y1=Math.floor(hz*(i+1)/N)+1;c.fillRect(0,y0,pw,y1-y0)}
   c.fillStyle=L.sky[1];c.fillRect(0,hz,pw,ph);
   if(L.night)for(let i=0;i<90;i++){c.fillStyle=i%7?'#c8c8ff':'#fcfcfc';const s=i%11?1:2;c.fillRect((i*997)%pw,(i*389)%Math.max(1,hz-20),s,s)}
-  if(!L.space)pdisk(Math.round(pw*.8-camP*.01),oy+(L.night?45:55),L.night?12:17,L.night?'#f4f1de':'#fcf0b8');
-  if(!L.night){const cp=camP*.12,sp=170,k0=Math.floor((cp-40)/sp);for(let k=k0;k<k0+pw/sp+2;k++)c.drawImage(SP.cloud,Math.round(k*sp+((k*53)%60+60)%60-cp),oy+20+((k*37)%40+40)%40)}
+  if(!L.space&&!L.dive)pdisk(Math.round(pw*.8-camP*.01),oy+(L.night?45:55),L.night?12:17,L.night?'#f4f1de':'#fcf0b8');
+  if(!L.night&&!L.dive){const cp=camP*.12,sp=170,k0=Math.floor((cp-40)/sp);for(let k=k0;k<k0+pw/sp+2;k++)c.drawImage(SP.cloud,Math.round(k*sp+((k*53)%60+60)%60-cp),oy+20+((k*37)%40+40)%40)}
   const fp=camP*.25,sp=L.fsp||230,k0=Math.floor((fp-250)/sp);for(let k=Math.max(0,k0);k<k0+pw/sp+3;k++){const s=lmS(L.far[k%L.far.length],L);c.drawImage(s.img,Math.round(90+k*sp-fp-s.ax),oy+186-s.ay)}
-  MID[L.mid](Math.round(camP*.5),L,oy,pw,ph)}
+  MID[L.mid](Math.round(camP*.5),L,oy,pw,ph);
+  if(L.dive){c.fillStyle='rgba(255,255,255,.07)';for(let k=0;k<6;k++){const bx=((k*137-camP*.08)%(pw+120)+pw+120)%(pw+120)-60,sw=Math.sin(fr*.01+k)*10;c.beginPath();c.moveTo(bx,0);c.lineTo(bx+26,0);c.lineTo(bx+70+sw,ph);c.lineTo(bx+30+sw,ph);c.fill()}}}
 function drawTiles(L){if(TLi!==li){TL=mkTiles(L);TLi=li}const x0=Math.max(0,Math.floor(camP/16)),x1=Math.min(W-1,Math.ceil((camP+pc.width)/16));
-  for(let y=0;y<H;y++)for(let x=x0;x<=x1;x++){const t=map[y][x];if(!t)continue;let py=y*16+oy;if(bump&&bump.tx===x&&bump.ty===y)py-=Math.round(Math.sin(bump.t/8*Math.PI)*4);
+  for(let y=0;y<H;y++)for(let x=x0;x<=x1;x++){const t=map[y][x];if(!t){if(L.ice&&y>0&&map[y+1]&&map[y+1][x]===1){if(map[y][x+1]===1&&!map[y-1][x+1])c.drawImage(TL.rr,x*16-camP,y*16+oy);else if(x>0&&map[y][x-1]===1&&!map[y-1][x-1])c.drawImage(TL.rl,x*16-camP,y*16+oy)}continue}let py=y*16+oy;if(bump&&bump.tx===x&&bump.ty===y)py-=Math.round(Math.sin(bump.t/8*Math.PI)*4);
     c.drawImage(t===1?(map[y-1]&&!map[y-1][x]?TL.gt:TL.g):t===2?TL.br:t===6?TL.hd:t===4?TL.u:((fr>>4)%3===0?TL.q1:TL.q0),x*16-camP,py)}}
 function decor(L){if(!L.green)return;const x0=Math.max(1,Math.floor(camP/16)-2),x1=Math.min(W-2,Math.ceil((camP+pc.width)/16)+2);
   for(let x=x0;x<=x1;x++)if(map[GY][x]===1&&!map[GY-1][x]){const h=(x*7919)%29;if(h<4)c.drawImage(SP.bush,x*16-camP-4,GY*16+oy-SP.bush.height+1);else if(h===7&&!map[GY-1][x-1]&&!map[GY-1][x+1])c.drawImage(SP.palm,x*16-camP-1,GY*16+oy-SP.palm.height+1)}}
-function drawP(){if(P.inv>0&&(fr>>2)%2)return;let big=P.big;if(P.gt>0)big=(P.gt>>2)%2===0;const set=P.star>0?(big?SP.bigT:SP.smT)[(fr>>2)%3]:big?SP.big:SP.sm;
+function drawP(){if(P.inv>0&&(fr>>2)%2)return;let big=P.big;if(P.gt>0)big=(P.gt>>2)%2===0;const LL=LV[li];
+  if(LL.dive){const sw=(big?SP.swimB:SP.swim)[Math.floor(fr/(Math.abs(P.vx)>.3||P.vy<0?7:16))%2][P.face>0?0:1],hx=Math.round((P.x+P.w/2)/PX)-camP,hy=Math.round((P.y+P.h/2)/PX)+oy;if(P.star>0&&(fr>>1)%2)c.globalAlpha=.55;c.drawImage(sw,hx-(sw.width>>1),hy-(sw.height>>1));c.globalAlpha=1;
+    const bt=fr%60;if(bt<36){c.fillStyle='#dff4ff';const bx=hx+(P.face>0?1:-1)*((sw.width>>1)-2),by=hy-(sw.height>>1)-(bt>>1);c.fillRect(bx,by,2,2);if(bt>12)c.fillRect(bx+(P.face>0?2:-2),by+5,1,1)}return}
+  if(LL.ice&&P.star<=0){const st=big?SP.skiB:SP.ski,f=(P.on?st.a:st.j)[P.face>0?0:1];at(f,P.x+P.w/2,P.y+P.h-2*PX);const sk=SP.skis[P.face>0?0:1],jx=Math.round((P.x+P.w/2)/PX)-camP,jy=Math.round((P.y+P.h)/PX)+oy+1;c.drawImage(sk,jx-(sk.width>>1),jy-sk.height);
+    if(P.on&&Math.abs(P.vx)>1){c.fillStyle='#fcfcfc';for(let k=0;k<5;k++)c.fillRect(jx-(P.face>0?1:-1)*((sk.width>>1)+2+k*3+(fr+k)%3),jy-2-((fr*3+k*7)%6),2,1)}return}const set=P.star>0?(big?SP.bigT:SP.smT)[(fr>>2)%3]:big?SP.big:SP.sm;
   const sea=LV[li].sea,f=(!P.on||sea?(sea?set.a:set.j):(Math.abs(P.vx)>.3&&Math.floor(P.anim)%2)?set.b:set.a)[P.face>0?0:1];at(f,P.x+P.w/2,P.y+P.h-(sea?5*PX:0));
   if(sea){const jx=Math.round((P.x+P.w/2)/PX)-camP,jy=Math.round((P.y+P.h)/PX)+oy+2,J=SP.jet;c.save();if(P.face<0){c.translate(jx*2,0);c.scale(-1,1)}c.drawImage(J,jx-(J.width>>1),jy-J.height);if(P.on&&Math.abs(P.vx)>.6){c.fillStyle='#fcfcfc';for(let k=0;k<4;k++){const sx=jx-(J.width>>1)-2-k*3-((fr+k*2)%4),sy=jy-2-((fr*3+k*5)%5);c.fillRect(sx,sy,2,1)}}c.restore()}
   if(LV[li].space){const hx=Math.round((P.x+P.w/2)/PX)-camP,top=Math.round((P.y+P.h)/PX)+oy-f.height+1;c.drawImage(SP.helm,hx-8+(P.face>0?-1:1),top-2)}}
-function drawFoe(e){if(e.dead>24)return;const k=SP[LV[li].foe][(fr>>3)%2][e.vx>0?0:1];
+function drawFoe(e){if(e.dead>24)return;const k=SP[e.kind||LV[li].foe][(fr>>3)%2][e.vx>0?0:1];
   if(e.dead)c.drawImage(k,0,0,k.width,k.height,Math.round((e.x+e.w/2)/PX)-camP-(k.width>>1),Math.round((e.y+e.h)/PX)+oy-(k.height>>1)+1,k.width,k.height>>1);else at(k,e.x+e.w/2,e.y+e.h)}
 function render(){c.setTransform(1,0,0,1,0,0);c.imageSmoothingEnabled=false;if(state==='map'){HT=[];drawMap();mc.setTransform(1,0,0,1,0,0);mc.imageSmoothingEnabled=false;const k=PX*scale*dpr;mc.drawImage(pc,0,0,pc.width*k,pc.height*k);flushHT(k);return}const L=LV[li];camP=Math.round(cam/PX);oy=offY/PX;
   drawBg(L);c.fillStyle=L.sea?'#0c3c78':shade(L.gd,.4);c.fillRect(0,GY*16+oy+8,pc.width,pc.height);
@@ -589,11 +635,13 @@ function render(){c.setTransform(1,0,0,1,0,0);c.imageSmoothingEnabled=false;if(s
   for(const p of pops){c.globalAlpha=1-p.t/32;at(SP.coin[[0,1,2,1][(p.t>>2)%4]],p.x+8,p.y+20-p.t*1.6);c.globalAlpha=1}
   for(const d of deb){const x=Math.round(d.x/PX)-camP,y=Math.round(d.y/PX)+oy;c.fillStyle='#9a7a52';c.fillRect(x,y,5,5);c.fillStyle='#e8d0a4';c.fillRect(x,y,4,4)}
   for(const e of foes)if(e.x>cam-40&&e.x<cam+VW+40)drawFoe(e);
-  if(boss&&boss.dead<90){const B=boss,k=B.inv>0&&(fr>>2)%2?SP.boss[2]:SP.boss[(fr>>4)%2];at(k,B.x+B.w/2,B.y+B.h)}
-  for(const o of orbs)at(SP.orb,o.x,o.y+8);
-  if(boss&&boss.act&&!boss.dead){if(!SP.bn)SP.bn=txt(L_('الجهل','IGNORANCE'),'18px Lalezar,Cairo,sans-serif','#fcfcfc','#1b140c');const bx=(pc.width>>1)-52,by=34;c.drawImage(SP.bn,(pc.width>>1)-(SP.bn.width>>1),by-SP.bn.height+8);
-    c.fillStyle='#1b140c';c.fillRect(bx,by+6,104,10);for(let i=0;i<5;i++){c.fillStyle=i<boss.hp?'#e41c1c':'#4c3c3c';c.fillRect(bx+2+i*20,by+8,18,6)}}
+  if(boss&&boss.dead<90){const B=boss,k=B.bear?(B.inv>0&&(fr>>2)%2?SP.bear[2]:SP.bear[(fr>>3)%2])[B.vx>0?0:1]:B.inv>0&&(fr>>2)%2?SP.boss[2]:SP.boss[(fr>>4)%2];at(k,B.x+B.w/2,B.y+B.h)}
+  for(const o of orbs)at(boss&&boss.bear?SP.snowb:SP.orb,o.x,o.y+8);
+  if(boss&&boss.act&&!boss.dead){if(!SP.bn||SP.bnL!==li){SP.bnL=li;SP.bn=txt(boss.bear?L_('الدب القطبي','POLAR BEAR'):L_('الجهل','IGNORANCE'),'18px Lalezar,Cairo,sans-serif','#fcfcfc','#1b140c')}const bx=(pc.width>>1)-52,by=34;c.drawImage(SP.bn,(pc.width>>1)-(SP.bn.width>>1),by-SP.bn.height+8);
+    c.fillStyle='#1b140c';c.fillRect(bx,by+6,104,10);{const mx2=boss.max||5,sw2=Math.floor(100/mx2);for(let i=0;i<mx2;i++){c.fillStyle=i<boss.hp?'#e41c1c':'#4c3c3c';c.fillRect(bx+2+i*sw2,by+8,sw2-2,6)}}}
   if(state!=='menu')drawP();
+  if(L.dive){c.fillStyle='rgba(10,70,150,.13)';c.fillRect(0,0,pc.width,pc.height);c.fillStyle='rgba(220,244,255,.75)';for(let i=0;i<26;i++){const bx=((i*97-camP*.6)%pc.width+pc.width)%pc.width+Math.round(Math.sin(fr*.05+i)*2),by=pc.height-((fr*(.4+(i%3)*.2)+i*41)%(pc.height+20));c.fillRect(bx,by,i%4?1:2,i%4?1:2)}}
+  if(L.ice){c.fillStyle='#fcfcfc';const pw=pc.width,ph=pc.height;for(let i=0;i<80;i++){const sx=(((i*137+fr*(.25+(i%3)*.15)+Math.sin((fr+i*20)*.03)*6-camP*.4)%pw)+pw)%pw,sy=((i*89+fr*(.5+(i%4)*.22))%ph);c.fillRect(sx|0,sy|0,i%6?1:2,i%6?1:2)}}
   if(state==='fin'||(state==='done'&&finT>0&&fw.length)){for(const p of fw){c.fillStyle=p.col;if(p.rk)c.fillRect(p.x|0,p.y|0,1,3);else c.fillRect(p.x|0,p.y|0,2,2)}
     if(state==='fin'&&finT>20){if(!SP.f1){SP.f1=txt(L_('مبروك!','CONGRATS!'),'48px Lalezar,Cairo,sans-serif','#fcbc3c','#1b140c');SP.f2=txt(L_('أنهيت جميع المراحل','ALL LEVELS CLEARED'),'18px Lalezar,Cairo,sans-serif','#fcfcfc','#1b140c');SP.f4=txt('وهزمت الجهل','18px Lalezar,Cairo,sans-serif','#fcfcfc','#1b140c');SP.f3=txt(L_('سوبر إماراتي','SUPER EMIRATI'),'22px Lalezar,Cairo,sans-serif','#e41c1c','#fcfcfc')}
       const cx=pc.width>>1,ty=oy+44+Math.round(Math.sin(finT*.08)*2);c.drawImage(SP.f3,cx-(SP.f3.width>>1),ty-34);c.drawImage(SP.f1,cx-(SP.f1.width>>1),ty-8);c.drawImage(SP.f2,cx-(SP.f2.width>>1),ty+SP.f1.height-20)}}
@@ -618,6 +666,7 @@ const MU=[
  {sc:'ajam',root:293.66,bpm:230,rh:'ayyala',ins:'oud',m:'0 2 4 - 4 5 4 2 4 - 2 1 0 - . . 4 5 7 - 7 5 4 5 4 2 1 2 0 - . .'},
  {sc:'bay',root:293.66,bpm:210,rh:'ayyala',ins:'oud',m:'0 - 2 3 4 - 3 2 3 - 2 1 0 - . . 4 - 5 4 3 2 3 4 2 - 1 2 0 - . .'},
  {sc:'nah',root:293.66,bpm:280,rh:'khal6',ins:'oud',m:'0 2 3 4 3 2 4 - 5 4 3 . 3 4 5 7 5 4 3 2 1 2 0 .'},
+ {sc:'ajam',root:329.63,bpm:200,rh:'khal8',ins:'ney',m:'7 - 5 4 5 - 4 2 4 - 2 1 0 - . . 4 5 7 9 7 - 5 4 5 4 2 4 2 - . .'},
  {sc:'rast',root:261.63,bpm:170,rh:'nahma',ins:'ney',m:'2 - 3 4 - 5 4 - 3 2 - . 4 - 5 7 - 5 4 3 2 0 - .'},
  {sc:'rast',root:261.63,bpm:190,rh:'khal8',ins:'ney',m:'4 5 6 7 6 - 5 4 5 4 3 4 2 - . . 0 2 3 4 5 4 3 2 3 2 1 2 0 - . .'},
  {sc:'bay',root:293.66,bpm:170,rh:'nahma',ins:'ney',m:'0 - 1 2 4 - 3 2 1 - 2 . 4 5 7 - 5 4 3 - 2 1 0 .'},
@@ -670,7 +719,7 @@ function won(){const nm=LV[li].n;trk('level_complete',{level:li+1,level_name:ENT
   if(li<LV.length-1)showMsg(L_('وصلت العلم في '+L.n+'!','Flag raised in '+LN(L)+'!'),p,[[L_('انطلق إلى ','Go to ')+LN(LV[li+1]),()=>goMap(li,li+1)],[L_('القائمة','Menu'),menu,1]]);
   else celebrate()}
 /* ---------- travel map ---------- */
-const CO={'روح الاتحاد':[55.245,25.235],'أبوظبي':[54.37,24.45],'جزيرة ياس':[54.61,24.49],'جزيرة السعديات':[54.44,24.55],'العين':[55.74,24.21],'ليوا':[53.78,23.14],'دبي':[55.30,25.17],'الشارقة':[55.41,25.33],'عجمان':[55.47,25.40],'أم القيوين':[55.58,25.53],'رأس الخيمة':[55.98,25.76],'الفجيرة':[56.30,25.12],'خورفكان':[56.31,25.33],'الفضاء':[56.31,25.33]};
+const CO={'روح الاتحاد':[55.245,25.235],'أبوظبي':[54.37,24.45],'جزيرة ياس':[54.61,24.49],'آيس أبوظبي':[54.40,24.50],'جزيرة السعديات':[54.44,24.55],'العين':[55.74,24.21],'ليوا':[53.78,23.14],'دبي':[55.30,25.17],'الشارقة':[55.41,25.33],'عجمان':[55.47,25.40],'أم القيوين':[55.58,25.53],'رأس الخيمة':[55.98,25.76],'الفجيرة':[56.30,25.12],'خورفكان':[56.31,25.33],'الفضاء':[56.31,25.33]};
 const UAE=[[51.58,24.26],[52.58,22.94],[55.2,22.7],[55.65,22.95],[55.8,23.85],[55.98,24.1],[55.88,24.3],[56.0,24.5],[56.05,24.75],[56.15,24.85],[56.37,24.95],[56.36,25.12],[56.34,25.4],[56.27,25.63],[56.1,25.75],[56.06,26.02],[55.95,25.85],[55.55,25.57],[55.39,25.36],[55.27,25.21],[55.03,24.99],[54.65,24.76],[54.38,24.51],[54.0,24.16],[53.6,24.06],[52.75,24.12],[52.2,24.06],[51.8,24.0]];
 const NB=[[[51.0,24.4],[51.58,24.26],[52.58,22.94],[55.2,22.7],[55.65,22.95],[55.8,23.85],[55.98,24.1],[55.88,24.3],[56.0,24.5],[56.05,24.75],[56.15,24.85],[56.37,24.95],[56.6,24.4],[57.2,23.8],[58,22.8],[58,21.5],[50.5,21.5]],[[56.27,25.63],[56.1,25.75],[56.06,26.02],[56.2,26.45],[56.5,26.4],[56.42,25.7]],[[50.75,24.75],[51.05,24.55],[51.62,25.25],[51.55,26.15],[51.2,26.2],[50.8,25.5]]];
 let mapA=-1,mapB=0,mapT=0,MAPC=null;const MAPDUR=240;
@@ -691,7 +740,7 @@ function mapGeo(){const pw=pc.width,ph=pc.height,top=40,bot=BANDH()+6,k=.91,s=Ma
 const ICN={};
 function iconOf(L,mh){const key=L.n+mh;if(ICN[key])return ICN[key];const s=lmS(IC2(L),L),sc=Math.min(1,mh/s.bh,mh*2.2/s.bw),dw=Math.max(2,Math.round(s.bw*sc)),dh=Math.max(2,Math.round(s.bh*sc)),k=mkc(dw,dh),x=k.getContext('2d');
   x.imageSmoothingEnabled=true;x.drawImage(s.img,s.bx,s.by,s.bw,s.bh,0,0,dw,dh);const id=x.getImageData(0,0,dw,dh),d=id.data;for(let i=3;i<d.length;i+=4)d[i]=d[i]>90?255:0;x.putImageData(id,0,0);return ICN[key]=outline(k,'#1b140c')}
-const IC2=L=>({'روح الاتحاد':'unionhouse','أبوظبي':'mosque','جزيرة ياس':'ferrari','جزيرة السعديات':'louvre','العين':'jahili','ليوا':'moreeb','دبي':'khalifa','الشارقة':'noor','عجمان':'fort','أم القيوين':'mangrove','رأس الخيمة':'fort','الفجيرة':'badiyah','خورفكان':'amphi','الفضاء':'rocket'})[L.n]||L.far[0];
+const IC2=L=>({'روح الاتحاد':'unionhouse','أبوظبي':'mosque','جزيرة ياس':'ferrari','جزيرة السعديات':'louvre','العين':'jahili','ليوا':'moreeb','دبي':'khalifa','الشارقة':'noor','عجمان':'fort','أم القيوين':'mangrove','رأس الخيمة':'fort','الفجيرة':'wreck','آيس أبوظبي':'igloo','خورفكان':'amphi','الفضاء':'rocket'})[L.n]||L.far[0];
 let HT=[];
 function ht(str,x,y,size,col,o={}){HT.push({str,x,y,size,col,ol:o.ol===undefined?'#1b140c':o.ol,f:o.f||'Lalezar,Cairo,sans-serif',w:o.w||'',sh:o.sh!==false})}
 function flushHT(k){for(const t of HT){mc.save();mc.font=t.w+' '+(t.size*k)+'px '+t.f;mc.textAlign='center';mc.textBaseline='middle';const X=Math.round(t.x*k),Y=Math.round(t.y*k);
@@ -709,7 +758,7 @@ function trainSprite(){if(TRAIN)return TRAIN;const W2=198,H2=32,k=mkc(W2,H2),x=k
   return TRAIN=outline(k,'#1b140c')}
 const NODES={G0:[51.6,24.12],RU:[52.73,24.1],MI:[53.45,24.1],LI:[53.78,23.14],AD:[54.37,24.45],YA:[54.61,24.49],SA:[54.44,24.55],AA:[55.74,24.21],DU:[55.30,25.17],UH:[55.245,25.235],SH:[55.41,25.33],AJ:[55.47,25.40],UQ:[55.58,25.53],RK:[55.98,25.76],DH:[55.88,25.29],FU:[56.30,25.12],KF:[56.31,25.33]};
 const EDGES=[['G0','RU'],['RU','MI'],['MI','LI'],['MI','AD'],['AD','YA'],['AD','SA'],['AD','AA'],['AD','DU'],['DU','UH'],['DU','SH'],['SH','AJ'],['AJ','UQ'],['UQ','RK'],['SH','DH'],['DH','RK'],['DH','FU'],['FU','KF']];
-const CITYN={'روح الاتحاد':'UH','أبوظبي':'AD','جزيرة ياس':'YA','جزيرة السعديات':'SA','العين':'AA','ليوا':'LI','دبي':'DU','الشارقة':'SH','عجمان':'AJ','أم القيوين':'UQ','رأس الخيمة':'RK','الفجيرة':'FU','خورفكان':'KF'};
+const CITYN={'روح الاتحاد':'UH','أبوظبي':'AD','جزيرة ياس':'YA','جزيرة السعديات':'SA','العين':'AA','ليوا':'LI','دبي':'DU','الشارقة':'SH','عجمان':'AJ','أم القيوين':'UQ','رأس الخيمة':'RK','الفجيرة':'FU','آيس أبوظبي':'AD','خورفكان':'KF'};
 function railPath(a,b){const dist={},prev={},Q=new Set(Object.keys(NODES)),dd=(p,q)=>Math.hypot(NODES[p][0]-NODES[q][0],NODES[p][1]-NODES[q][1]);for(const n of Q)dist[n]=1e9;dist[a]=0;
   while(Q.size){let u=null;for(const n of Q)if(u===null||dist[n]<dist[u])u=n;Q.delete(u);if(u===b)break;for(const[p,q]of EDGES){const v=p===u?q:q===u?p:null;if(v&&Q.has(v)&&dist[u]+dd(u,v)<dist[v]){dist[v]=dist[u]+dd(u,v);prev[v]=u}}}
   const out=[b];while(out[0]!==a&&prev[out[0]])out.unshift(prev[out[0]]);return out.map(n=>NODES[n])}
